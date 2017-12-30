@@ -1,0 +1,172 @@
+set $mod Mod4
+
+set $term urxvt
+
+# Font for window titles. Will also be used by the bar unless a different font
+# is used in the bar {} block below.
+font pango:monospace 8
+focus_follows_mouse no
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# start a terminal
+bindsym $mod+Return exec $term
+bindsym $mod+Shift+Return exec $term -e tmux
+
+# kill focused window
+bindsym $mod+Shift+q kill
+
+# bindsym $mod+d exec rofi (a program launcher)
+bindsym $mod+d exec rofi -show run
+bindsym $mod+Shift+d exec rofi -show window
+bindsym $mod+Shift+s exec rofi -show ssh
+
+# change focus
+bindsym $mod+j focus left
+bindsym $mod+k focus down
+bindsym $mod+l focus up
+bindsym $mod+odiaeresis focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+j move left
+bindsym $mod+Shift+k move down
+bindsym $mod+Shift+l move up
+bindsym $mod+Shift+odiaeresis move right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# split in horizontal orientation
+bindsym $mod+h split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# focus the child container
+#bindsym $mod+d focus child
+
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# Custom Bindings
+bindsym $mod+Shift+x exec i3lock
+
+# workspace variables
+{% for workspace in i3_workspaces %}
+set $workspace{{ workspace.id }} "{{ workspace.name }}"
+{% endfor %}
+
+# switch to workspace
+{% for workspace in i3_workspaces %}
+bindsym $mod+{{ workspace.id }} workspace $workspace{{ workspace.id }}
+{% endfor %}
+
+# move focused container to workspace
+{% for workspace in i3_workspaces %}
+bindsym $mod+Shift+{{ workspace.id }} move container to workspace $workspace{{ workspace.id }}
+{% endfor %}
+
+{% for monitor in i3_monitors %}
+{% for workspace in monitor.workspaces %}
+workspace $workspace{{ workspace }} output {{ monitor.output }}
+{% endfor %}
+{% endfor %}
+
+{% for application in i3_applications %}
+assign [class="{{ application.class }}"] $workspace{{ application.workspace }}
+{% endfor %}
+
+for_window [instance="dropdown"] floating enable
+for_window [instance="dropdown"] resize set 1024 800
+for_window [instance="dropdown"] move position center
+for_window [instance="dropdown"] move scratchpad
+exec --no-startup-id $term -name dropdown -e tmux
+bindsym $mod+t [instance="dropdown"] scratchpad show; move position center
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym j resize shrink width 10 px or 10 ppt
+        bindsym k resize grow height 10 px or 10 ppt
+        bindsym l resize shrink height 10 px or 10 ppt
+        bindsym odiaeresis resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+bar {
+        status_command i3status
+}
+
+# Background
+{% if i3_desktop_env is defined %}
+{% if i3_desktop_env.background is defined %}
+exec_always feh --bg-scale {{ i3_desktop_env.background}}
+{% endif %}
+{% endif %}
+
+# Setup Monitors
+exec xrandr {% for monitor in i3_monitors %} --output {{ monitor.output }} --mode {{ monitor.mode }} --pos {{ monitor.pos }} --rotate normal {% endfor %}
+
+exec compton
+
+# Start Default Applications
+{% for application in i3_applications if application.on_startup %}
+exec {{ application.name }}
+{% endfor %}
+
+# Register Keybindings
+{% for keybinding in i3_keybindings %}
+bindsym {{ keybinding.key }} exec {{ keybinding.exec }}
+{% endfor%}
+

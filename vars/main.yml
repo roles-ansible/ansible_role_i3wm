@@ -1,0 +1,46 @@
+---
+__i3_workspaces:
+  - workspace:
+    id: 1
+    name: "01: "
+  - workspace:
+    id: 2
+    name: "02: "
+  - workspace:
+    id: 3
+    name: "03: "
+  - workspace:
+    id: 4
+    name: "04: "
+  - workspace:
+    id: 5
+    name: "05: "
+  - workspace:
+    id: 6
+    name: "06: "
+  - workspace:
+    id: 7
+    name: "07: "
+  - workspace:
+    id: 8
+    name: "08: "
+  - workspace:
+    id: 9
+    name: "09: "
+  - workspace:
+    id: 0
+    name: "10: "
+
+__i3_keybindings:
+  - keybinding:
+    name: Volume (-5%)
+    key: XF86AudioLowerVolume
+    exec: --no-startup-id amixer sset Master 5%-
+  - keybinding:
+    name: Volume (+5%)
+    key: XF86AudioRaiseVolume
+    exec: --no-startup-id amixer sset Master 5%+
+  - keybinding:
+    name: Volume (mute/unmute)
+    key: XF86AudioMute
+    exec: --no-startup-id amixer sset Master toggle

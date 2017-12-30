@@ -1,0 +1,22 @@
+---
+i3_keybindings_extra: []
+#  - keybinding:
+#    name: example
+#    key: $mod+Shift+F10
+#    exec: --no-startup-id touch /tmp/example.txt
+
+i3_monitors: []  # see: xrandr
+#  - monitor:
+#    id: 1
+#    output: "VGA-1"
+#    mode: "1920x1080"
+#    pos: "0x0"
+#    rotate: "normal"
+#    workspaces: [1,2,3,4,5,6,7,8,9,0] # bind workspace to a specific monitor
+
+i3_applications: []
+#    - application:
+#    class: "Firefox"
+#    name: "firefox"
+#    workspace: 1 # bind application to a specific workspace
+#    on_startup: false

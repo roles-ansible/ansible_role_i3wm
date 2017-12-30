@@ -1,0 +1,32 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: docker
+lint:
+  name: yamllint
+platforms:
+  - name: debian_stretch_default
+    image: debian:stretch
+#  - name: debian_jessie_default
+#    image: debian:jessie
+  - name: ubuntu_xenial_default
+    image: ubuntu:xenial
+#  - name: ubuntu_trusty_default
+#    image: ubuntu:trusty
+provisioner:
+  name: ansible
+  lint:
+    name: ansible-lint
+scenario:
+  name: default
+  test_sequence:
+    - lint
+    - syntax
+    - create
+    - prepare
+    - converge
+verifier:
+  name: testinfra
+  lint:
+    name: flake8

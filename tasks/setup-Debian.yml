@@ -1,0 +1,7 @@
+---
+- name: ensure i3 packages are installed.
+  apt:
+    name: "{{ item }}"
+    state: "present"
+  with_items: "{{ i3_packages }}"
+  become: true

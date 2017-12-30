@@ -1,0 +1,15 @@
+---
+galaxy_info:
+  author: Owe Bretthauer
+  description: i3wm (https://i3wm.org/)
+  license: license (Apache)
+  min_ansible_version: 2.2
+  platforms:
+    - name: Debian
+      versions:
+        - stretch
+    - name: Ubuntu
+      versions:
+        - xenial
+  galaxy_tags: [i3wm]
+dependencies: []

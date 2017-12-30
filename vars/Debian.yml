@@ -1,0 +1,8 @@
+---
+__i3_packages:
+  - i3
+  - rxvt-unicode
+  - rofi
+  - compton
+  - feh
+  - tmux
