@@ -1,6 +1,6 @@
 ---
 - name: ensure i3 packages are installed.
-  apt:
+  dnf:
     name: "{{ i3_packages }}"
-    state: "present"
+    state: "latest"
   become: true
