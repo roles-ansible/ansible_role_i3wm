@@ -17,7 +17,7 @@ bindsym $mod+Shift+Return exec $term -e tmux
 # kill focused window
 bindsym $mod+Shift+q kill
 
-{% if ansible_os_family == 'Redhat' %} 
+{% if ansible_distribution == 'Redhat' or ansible_distribution == 'Fedora' %} 
 # bindsym $mod+d exec dmenu_run (a program launcher)
 bindsym $mod+d exec dmenu_run
 {% else %}bindsym $mod+d exec rofi -show run
