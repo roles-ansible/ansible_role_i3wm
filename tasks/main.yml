@@ -7,7 +7,7 @@
   when: ansible_os_family == 'Debian'
 
 # ensure i3 packages are installed [Archlinux}
-- include_tasks: setup-ArchLinux.yml
+- include_tasks: setup-Archlinux.yml
   when: ansible_os_family == 'Archlinux'
 
 # ensure i3 packages are installed [RHEL].
