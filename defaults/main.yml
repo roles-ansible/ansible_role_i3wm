@@ -26,5 +26,5 @@ i3:
   font_size: 9
   focus_follows_mouse: true
 
-i3lock_options: "--color 5eba5e"
+i3lock_options: "i3lock --color 5eba5e"
 
