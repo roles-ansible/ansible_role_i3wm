@@ -6,6 +6,10 @@
 - include_tasks: setup-Debian.yml
   when: ansible_os_family == 'Debian'
 
+# ensure i3 packages are installed [Archlinux}
+- include_tasks: setup-ArchLinux.yml
+  when: ansible_os_family == 'Archlinux'
+
 # ensure i3 packages are installed [RHEL].
 - include_tasks: setup-RedHat.yml
   when: ansible_os_family == 'Fedora' or ansible_os_family == 'RedHat'
