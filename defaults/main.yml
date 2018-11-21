@@ -28,3 +28,9 @@ i3:
 
 i3lock_options: "i3lock --color 5eba5e"
 
+i3_desktop_env:
+  background: "~/wallpaper.jpg"
+
+i3_packages_extra:
+  - ranger
+
