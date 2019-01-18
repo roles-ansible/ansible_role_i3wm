@@ -1,6 +1,7 @@
 ---
-# register variables
-- import_tasks: variables.yml
+
+- name: register variables
+  import_tasks: variables.yml
 
 # ensure i3 packages are installed [Debian].
 - include_tasks: setup-Debian.yml
@@ -17,16 +18,17 @@
 # create i3 config file
 - name: Creates directory
   file: 
-    path: '~/.config/i3'
+    path: '/home/{{ ansible_user }}/.config'
     state: directory
     mode: 0750
     owner: "{{ ansible_user }}"
 
 - name: create i3 config folder
   file:
-    path: ~/.config/i3/
+    path: '/home/{{ ansible_user }}/.config/i3/'
     state: directory
     mode: 0755
+    owner: "{{ ansible_user }}"
 
 - name: register i3 config file
   action: stat path="~/.config/i3/config"
