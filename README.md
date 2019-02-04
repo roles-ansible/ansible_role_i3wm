@@ -4,6 +4,8 @@ I3 WM
 Install and a basic configuration of I3 Window Manager
 See: https://i3wm.org/
 
+[![Build Status](https://travis-ci.org/DO1JLR/ansible-role-i3wm.svg?branch=master)](https://travis-ci.org/DO1JLR/ansible-role-i3wm)
+
 Requirements
 ------------
 
