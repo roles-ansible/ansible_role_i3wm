@@ -31,16 +31,4 @@ __i3_workspaces:
     id: 0
     name: " 0 "
 
-__i3_keybindings:
-  - keybinding:
-    name: Volume (-5%)
-    key: XF86AudioLowerVolume
-    exec: --no-startup-id amixer sset Master 5%-
-  - keybinding:
-    name: Volume (+5%)
-    key: XF86AudioRaiseVolume
-    exec: --no-startup-id amixer sset Master 5%+
-  - keybinding:
-    name: Volume (mute/unmute)
-    key: XF86AudioMute
-    exec: --no-startup-id amixer sset Master toggle
+
