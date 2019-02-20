@@ -21,6 +21,9 @@ i3_applications: []
 #    workspace: 1 # bind application to a specific workspace
 #    on_startup: false
 
+i3_run_on_startup: []
+#  - foo
+#  - bar
 
 i3:
   font_size: 9

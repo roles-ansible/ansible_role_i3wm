@@ -169,6 +169,10 @@ exec compton
 exec {{ application.name }}
 {% endfor %}
 
+{% for app in i3_run_on_startup %}
+exec {{ app }}
+{% endfor %}
+
 # Register Keybindings
 {% for keybinding in i3_keybindings %}
 bindsym {{ keybinding.key }} exec {{ keybinding.exec }}
