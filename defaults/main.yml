@@ -37,3 +37,4 @@ i3_desktop_env:
 i3_packages_extra:
   - ranger
 
+i3wm_user: "{{ user }}"

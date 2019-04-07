@@ -42,6 +42,9 @@ Role Variables
 
     i3_applications: []
 
+*ansible user*
+i3wm_user: "{{ user }}"
+
 Example Playbook
 ----------------
 
