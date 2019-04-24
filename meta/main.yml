@@ -13,7 +13,6 @@ galaxy_info:
     - name: Ubuntu
       versions:
         - bionic
-        - disco
     - name: Fedora
       versions:
         - 28

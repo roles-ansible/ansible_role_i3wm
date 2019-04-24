@@ -1,5 +1,4 @@
 ---
-
 - name: register variables
   import_tasks: variables.yml
 
@@ -18,17 +17,17 @@
 # create i3 config file
 - name: Creates directory
   file: 
-    path: '/home/{{ iw3m_user }}/.config'
+    path: '/home/{{ i3wm_user }}/.config'
     state: directory
     mode: 0750
-    owner: "{{ iw3m_user }}"
+    owner: "{{ i3wm_user }}"
 
 - name: create i3 config folder
   file:
-    path: '/home/{{ iw3m_user }}/.config/i3/'
+    path: '/home/{{ i3wm_user }}/.config/i3/'
     state: directory
     mode: 0755
-    owner: "{{ iw3m_user }}"
+    owner: "{{ i3wm_user }}"
 
 - name: register i3 config file
   action: stat path="~/.config/i3/config"
@@ -46,7 +45,7 @@
     - name: create i3 config file
       template:
         src: config.j2
-        dest: "/home/{{ iw3m_user }}/.config/i3/config"
+        dest: "/home/{{ i3wm_user }}/.config/i3/config"
 
     - name: check i3 config file
       command: i3 -C

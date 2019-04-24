@@ -37,4 +37,4 @@ i3_desktop_env:
 i3_packages_extra:
   - ranger
 
-iw3m_user: "{{ user }}"
+i3wm_user: "{{ ansible_user_id }}"
