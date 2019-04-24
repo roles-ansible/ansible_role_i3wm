@@ -1,15 +1,25 @@
 ---
 galaxy_info:
-  author: Owe Bretthauer
-  description: i3wm (https://i3wm.org/)
+  author: L3D
+  description: Install and configure i3wm (https://i3wm.org/)
   license: license (Apache)
   min_ansible_version: 2.2
   platforms:
+    - name: Archlinux
+      versions: all
     - name: Debian
       versions:
         - stretch
     - name: Ubuntu
       versions:
-        - xenial
-  galaxy_tags: [i3wm]
+        - bionic
+        - disco
+    - name: Fedora
+      versions:
+        - 28
+        - 29
+  galaxy_tags: 
+    - i3wm
+    - arch
+    - desktop
 dependencies: []
