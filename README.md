@@ -1,10 +1,14 @@
 I3 WM
 =====
 
-Install and a basic configuration of I3 Window Manager
-See: https://i3wm.org/
+Install and a basic configuration of [I3 Window Manager](https://i3wm.org/)
 
-[![Build Status](https://travis-ci.org/DO1JLR/ansible-role-i3wm.svg?branch=master)](https://travis-ci.org/DO1JLR/ansible-role-i3wm)
+[![Build Status](https://travis-ci.org/DO1JLR/ansible-role-i3wm.svg?branch=master)](https://travis-ci.org/DO1JLR/ansible-role-i3wm) 
+
+<a href="https://galaxy.ansible.com/do1jlr/ansible_role_i3wm"><img width="80px" src="https://galaxy.ansible.com/assets/galaxy-logo-02.svg"/></a> - Get it directly from Ansible Galaxy 
+```bash
+$ ansible-galaxy install do1jlr.ansible_role_i3wm
+```
 
 Requirements
 ------------
