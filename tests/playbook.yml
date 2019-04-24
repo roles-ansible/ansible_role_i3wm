@@ -1,6 +1,6 @@
 ---
 - hosts: all
-  user: vagrant
+  i3wm_user: vagrant
 
   vars:
 

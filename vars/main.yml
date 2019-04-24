@@ -30,3 +30,5 @@ __i3_workspaces:
   - workspace:
     id: 0
     name: " 0 "
+
+user: "{{ i3wm_user }}"
