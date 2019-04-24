@@ -2,5 +2,5 @@
 - name: ensure i3 packages are installed.
   dnf:
     name: "{{ i3_packages }}"
-    state: "latest"
+    state: present
   become: true

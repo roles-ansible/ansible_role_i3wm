@@ -2,6 +2,6 @@
 - name: ensure i3 packages are installed.
   pacman:
     name: "{{ i3_packages }}"
-    state: latest
+    state: present
     update_cache: yes
   become: true

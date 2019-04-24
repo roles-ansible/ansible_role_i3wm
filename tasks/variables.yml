@@ -23,20 +23,20 @@
 - name: define i3_packages
   set_fact:
     i3_keybindings: "{{ __i3_keybindings | list }}"
-  when: 
+  when:
    - i3_keybindings is not defined
    - __i3_keybindings is defined
 
 - name: define extra i3 keybindings
   set_fact:
     i3_keybindings: "{{ i3_keybindings_extra | list + i3_keybindings | list }}"
-  when: 
+  when:
    - i3_keybindings_extra is defined
    - i3_keybindings is defined
 
 - name: define extra i3 keybindings
   set_fact:
     i3_keybindings: "{{ i3_keybindings_extra | list }}"
-  when: 
+  when:
    - i3_keybindings_extra is defined
    - i3_keybindings is not defined

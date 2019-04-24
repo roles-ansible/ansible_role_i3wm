@@ -16,7 +16,7 @@
 
 # create i3 config file
 - name: Creates directory
-  file: 
+  file:
     path: '/home/{{ i3wm_user }}/.config'
     state: directory
     mode: 0750
