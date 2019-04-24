@@ -4,7 +4,6 @@ i3_keybindings_extra: []
 #    name: example
 #    key: $mod+Shift+F10
 #    exec: --no-startup-id touch /tmp/example.txt
-
 i3_monitors: []  # see: xrandr
 #  - monitor:
 #    id: 1
@@ -13,28 +12,26 @@ i3_monitors: []  # see: xrandr
 #    pos: "0x0"
 #    rotate: "normal"
 #    workspaces: [1,2,3,4,5,6,7,8,9,0] # bind workspace to a specific monitor
-
 i3_applications: []
 #    - application:
 #    class: "Firefox"
 #    name: "firefox"
 #    workspace: 1 # bind application to a specific workspace
 #    on_startup: false
-
 i3_run_on_startup: []
 #  - foo
 #  - bar
-
+## set default font size
 i3:
   font_size: 9
   focus_follows_mouse: true
-
+# set i3lock options
 i3lock_options: "i3lock --color 5eba5e"
-
+# use fancy background
 i3_desktop_env:
   background: "~/wallpaper.jpg"
-
+# install additional packages
 i3_packages_extra:
   - ranger
-
+# which user are we?
 i3wm_user: "{{ ansible_user_id }}"
