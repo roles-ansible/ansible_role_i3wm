@@ -4,6 +4,7 @@ galaxy_info:
   description: Install and configure i3wm (https://i3wm.org/)
   license: license (Apache)
   min_ansible_version: 2.2
+  github_branch: master
   platforms:
     - name: Archlinux
       versions: all
