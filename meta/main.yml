@@ -2,7 +2,7 @@
 galaxy_info:
   author: L3D
   description: Install and configure i3wm (https://i3wm.org/)
-  license: license (Apache)
+  license: "Apache"
   min_ansible_version: 2.2
   github_branch: master
   platforms:
