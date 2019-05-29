@@ -1,4 +1,6 @@
 ---
+# Here are the variables you may want to change
+# to configure i3wm
 i3_keybindings_extra: []
 #  - keybinding:
 #    name: example
@@ -35,3 +37,5 @@ i3_packages_extra:
   - ranger
 # which user are we?
 i3wm_user: "{{ ansible_user_id }}"
+# version check for this role?
+submodules_versioncheck: true
