@@ -1,67 +1,42 @@
-I3 WM
-=====
+ I3 Window Manager - ansible role
+=========================================
 
-Install and a basic configuration of [I3 Window Manager](https://i3wm.org/)
+*Install and deploy a basic configuration of [I3 Window Manager](https://i3wm.org/) via ansible.*
 
 [![Build Status](https://travis-ci.org/DO1JLR/ansible-role-i3wm.svg?branch=master)](https://travis-ci.org/DO1JLR/ansible-role-i3wm) 
 
-<a href="https://galaxy.ansible.com/do1jlr/ansible_role_i3wm"><img width="80px" src="https://galaxy.ansible.com/assets/galaxy-logo-02.svg"/></a> - Get it directly from Ansible Galaxy 
+<a href="https://galaxy.ansible.com/do1jlr/ansible_role_i3wm"><img width="80px" src="https://galaxy.ansible.com/assets/galaxy-logo-02.svg"/></a>
+
+### Get it directly from Ansible Galaxy 
 ```bash
 $ ansible-galaxy install do1jlr.ansible_role_i3wm
 ```
 
-Requirements
+ Requirements
 ------------
 
 No requirements.
 
-Role Variables
+ Role Variables
 --------------
 
-*additional i3 packages*
+For a good overview about possible variables, please have a look into ``defaults/main.yml``.
 
-    i3_packages_extra:
-
-*background image*
-
-    i3_desktop_env:
-
-*i3 workspaces*
-
-`__i3_workspaces` could be overwritte with `i3_workspaces`
-
-*i3 keybindings*
-
-`__i3_keybindings` coud be overwritten with `i3_keybindings`
-
-*additional i3 keybindings*
-
-    i3_keybindings_extra: []
-
-*monitor settings and bindings to i3 workspaces*
-
-    i3_monitors: []
-
-*applications bindings to i3 workspaces*
-
-    i3_applications: []
-
-*ansible user*
-i3wm_user: "{{ ansible_user_id }}"
-
-Example Playbook
+ Example Playbook
 ----------------
 
 Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
 
+```bash
     - hosts: all
       vars_files:
         - vars/main.yml    
       roles:
         - { role: i3 }
-
+```
 *`vars/main.yml`*
 
+```bash
     i3_desktop_env:
       background: "~/wallpaper.jpg"
 
@@ -106,7 +81,4 @@ Including an example of how to use your role (for instance, with variables passe
         workspace: 7
         on_startup: true
 
-License
--------
-
-Apache
+```
