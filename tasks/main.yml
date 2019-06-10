@@ -67,3 +67,12 @@
         dest: ~/.config/i3/config
         remote_src: true
       when: config_file_backup.stat.exists
+
+- name: copy files
+  copy: 
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+  with_items:
+    - { src: 'files/background.png', dest: "/home/{{ i3wm_user }}/.config/background.png" }
+    - { src: 'files/lockscreen.png', dest: '/home/{{ i3wm_user }}/.config/lockscreen.png' }
+  when: i3wm_copy_wallpapers | bool 

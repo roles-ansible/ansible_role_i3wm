@@ -28,10 +28,10 @@ i3:
   font_size: 9
   focus_follows_mouse: true
 # set i3lock options
-i3lock_options: "i3lock --color 5eba5e"
+i3lock_options: "i3lock --image=/home/{{ i3wm_user }}/.config/lockscreen.png --color 000000"
 # use fancy background
 i3_desktop_env:
-  background: "~/wallpaper.jpg"
+  background: "/home/{{ i3wm_user }}/.config/background.png"
 # install additional packages
 i3_packages_extra:
   - ranger
@@ -39,3 +39,5 @@ i3_packages_extra:
 i3wm_user: "{{ ansible_user_id }}"
 # version check for this role?
 submodules_versioncheck: true
+
+i3wm_copy_wallpapers: true
