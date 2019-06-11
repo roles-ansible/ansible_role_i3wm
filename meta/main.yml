@@ -1,9 +1,10 @@
 ---
 galaxy_info:
   author: L3D
-  description: Install and configure i3wm (https://i3wm.org/)
-  license: "Apache"
-  min_ansible_version: 2.2
+  role_name: i3wm
+  description: Install and configure i3wm on common linux distibutions (https://i3wm.org/)
+  license: "MIT"
+  min_ansible_version: 2.3
   github_branch: master
   platforms:
     - name: Archlinux
@@ -11,6 +12,7 @@ galaxy_info:
     - name: Debian
       versions:
         - stretch
+        - jessie
     - name: Ubuntu
       versions:
         - bionic
@@ -22,4 +24,5 @@ galaxy_info:
     - i3wm
     - arch
     - desktop
+    - linux
 dependencies: []
