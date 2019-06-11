@@ -153,7 +153,7 @@ bar {
 }
 
 # Setup Monitors
-exec xrandr {% for monitor in i3_monitors %} --output {{ monitor.output }} --mode {{ monitor.mode }} --pos {{ monitor.pos }} --rotate {{ monitor.rotate }} {% endfor %}
+exec sleep 2 && xrandr {% for monitor in i3_monitors %} --output {{ monitor.output }} --mode {{ monitor.mode }} --pos {{ monitor.pos }} --rotate {{ monitor.rotate }} {% endfor %}
 
 # Background
 {% if i3_desktop_background is defined %}
@@ -165,11 +165,11 @@ exec compton
 
 # Start Default Applications
 {% for application in i3_applications if application.on_startup %}
-exec {{ application.name }}
+exec sleep 3 && {{ application.name }}
 {% endfor %}
 
 {% for app in i3_run_on_startup %}
-exec {{ app }}
+exec sleep 4 && {{ app }}
 {% endfor %}
 
 # Register Keybindings
