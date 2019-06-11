@@ -1,6 +1,6 @@
 ---
 - hosts: all
   vars:
-    i3wm_user: "{{ ansible_user }}"
+    i3wm_user: "{{ ansible_user_id }}"
   roles:
     - travis_test

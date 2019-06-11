@@ -152,13 +152,14 @@ bar {
         status_command i3status
 }
 
+# Setup Monitors
+exec xrandr {% for monitor in i3_monitors %} --output {{ monitor.output }} --mode {{ monitor.mode }} --pos {{ monitor.pos }} --rotate {{ monitor.rotate }} {% endfor %}
+
 # Background
 {% if i3_desktop_background is defined %}
 exec_always feh --bg-scale {{ i3_desktop_background }}
 {% endif %}
 
-# Setup Monitors
-exec xrandr {% for monitor in i3_monitors %} --output {{ monitor.output }} --mode {{ monitor.mode }} --pos {{ monitor.pos }} --rotate normal {% endfor %}
 
 exec compton
 
