@@ -5,11 +5,11 @@
 
 [![Build Status](https://travis-ci.org/chaos-bodensee/role-i3wm.svg?branch=master)](https://travis-ci.org/chaos-bodensee/role-i3wm)
 
-<a href="https://galaxy.ansible.com/do1jlr/ansible_role_i3wm"><img width="80px" src="https://galaxy.ansible.com/assets/galaxy-logo-02.svg"/></a>
+<a href="https://galaxy.ansible.com/do1jlr/i3wm"><img width="80px" src="https://galaxy.ansible.com/assets/galaxy-logo-02.svg"/></a>
 
 ### Get it directly from Ansible Galaxy 
 ```bash
-$ ansible-galaxy install do1jlr.ansible_role_i3wm
+$ ansible-galaxy install do1jlr.i3wm
 ```
 
  Requirements
