@@ -4,8 +4,8 @@ set $term terminator
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:monospace {{ i3.font_size }}
-focus_follows_mouse {% if i3.focus_follows_mouse %}yes{% else %}no{% endif %}
+font pango:monospace {{ i3_font_size }}
+focus_follows_mouse {% if i3_focus_follows_mouse | bool %}yes{% else %}no{% endif %}
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -153,10 +153,8 @@ bar {
 }
 
 # Background
-{% if i3_desktop_env is defined %}
-{% if i3_desktop_env.background is defined %}
-exec_always feh --bg-scale {{ i3_desktop_env.background}}
-{% endif %}
+{% if i3_desktop_background is defined %}
+exec_always feh --bg-scale {{ i3_desktop_background }}
 {% endif %}
 
 # Setup Monitors

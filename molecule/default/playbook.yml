@@ -3,8 +3,7 @@
   hosts: all
 
   vars:
-    i3_desktop_env:
-      background: "~/wallpaper.jpg"
+    i3_desktop_background: "~/wallpaper.jpg"
 
     i3_packages_extra:
       - ranger

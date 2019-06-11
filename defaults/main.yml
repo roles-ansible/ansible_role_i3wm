@@ -24,14 +24,12 @@ i3_run_on_startup: []
 #  - foo
 #  - bar
 ## set default font size
-i3:
-  font_size: 9
-  focus_follows_mouse: true
+i3_font_size: 9
+i3_focus_follows_mouse: true
 # set i3lock options
 i3lock_options: "i3lock --image=/home/{{ i3wm_user }}/.config/lockscreen.png --color 000000"
 # use fancy background
-i3_desktop_env:
-  background: "/home/{{ i3wm_user }}/.config/background.png"
+i3_desktop_background: "/home/{{ i3wm_user }}/.config/background.png"
 # install additional packages
 i3_packages_extra:
   - ranger

@@ -37,8 +37,7 @@ Including an example of how to use your role (for instance, with variables passe
 *`vars/main.yml`*
 
 ```bash
-    i3_desktop_env:
-      background: "~/wallpaper.jpg"
+    i3_desktop_background: "~/Bilder/wallpaper.jpg"
 
     i3_packages_extra:
       - ranger
