@@ -160,7 +160,11 @@ exec sleep 2 && xrandr {% for monitor in i3_monitors %} --output {{ monitor.outp
 exec_always feh --bg-scale {{ i3_desktop_background }}
 {% endif %}
 
-
+{% if disable_screensaver | bool %}
+# Disable screensaver by default
+exec xset s off
+exec xset -dpms
+{% endif %}
 exec compton
 
 # Start Default Applications

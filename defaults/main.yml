@@ -39,3 +39,5 @@ i3wm_user: "{{ ansible_user_id }}"
 submodules_versioncheck: true
 
 i3wm_copy_wallpapers: true
+
+disable_screensaver: true

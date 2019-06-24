@@ -33,5 +33,5 @@ __i3_workspaces:
 
 user: "{{ i3wm_user }}"
 
-playbook_version_number: 9005 # should be over ninethousand
+playbook_version_number: 9006 # should be over ninethousand
 playbook_version_path: '/etc/ansible-version/role-i3wm_chaos-bodensee_github.com.version'
