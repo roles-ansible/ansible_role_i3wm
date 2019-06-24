@@ -9,4 +9,4 @@ __i3_packages:
   - dmenu
   - xautolock
   - scrot
-  - imagemagick
+  - ImageMagick
