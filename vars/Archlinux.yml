@@ -7,3 +7,6 @@ __i3_packages:
   - tmux
   - terminator
   - i3lock
+  - xautolock
+  - scrot
+  - imagemagick

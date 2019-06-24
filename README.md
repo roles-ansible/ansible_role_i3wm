@@ -37,11 +37,14 @@ Including an example of how to use your role (for instance, with variables passe
 *`vars/main.yml`*
 
 ```bash
+    # background image
     i3_desktop_background: "~/Bilder/wallpaper.jpg"
 
+    # additional programms you need
     i3_packages_extra:
       - ranger
 
+    # you want additional keybindings?
     i3_keybindings_extra:
       - keybinding:
         name: Volume (mute/unmute)
@@ -52,6 +55,7 @@ Including an example of how to use your role (for instance, with variables passe
         key: $mod+Shift+F12
         exec: --no-startup-id amixer sset Master 40%
 
+    # how your monitors are configured
     i3_monitors:
       - monitor:
         id: 1
@@ -68,6 +72,7 @@ Including an example of how to use your role (for instance, with variables passe
         rotate: "normal"
         workspaces: [7,8,9,0]
 
+    # startup applications
     i3_applications:
       - application:
         class: "Firefox"
@@ -80,4 +85,6 @@ Including an example of how to use your role (for instance, with variables passe
         workspace: 7
         on_startup: true
 
+    # lock your screen after 3 hours
+    enable_lock_after_time: true
 ```

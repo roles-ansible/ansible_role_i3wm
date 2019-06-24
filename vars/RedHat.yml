@@ -7,3 +7,6 @@ __i3_packages:
   - terminator
   - i3lock
   - dmenu
+  - xautolock
+  - scrot
+  - imagemagick

@@ -153,7 +153,7 @@ bar {
 }
 
 # Setup Monitors
-exec sleep 2 && xrandr {% for monitor in i3_monitors %} --output {{ monitor.output }} --mode {{ monitor.mode }} --pos {{ monitor.pos }} --rotate {{ monitor.rotate }} {% endfor %}
+exec_always sleep 1 && xrandr {% for monitor in i3_monitors %} --output {{ monitor.output }} --mode {{ monitor.mode }} --pos {{ monitor.pos }} --rotate {{ monitor.rotate }} {% endfor %}
 
 # Background
 {% if i3_desktop_background is defined %}
@@ -162,10 +162,14 @@ exec_always feh --bg-scale {{ i3_desktop_background }}
 
 {% if disable_screensaver | bool %}
 # Disable screensaver by default
-exec xset s off
+exec_always xset s off
 exec xset -dpms
 {% endif %}
 exec compton
+
+{% if enable_lock_after_time | bool %}
+exec xautolock -time {{ lock_after_time }} -locker 'scrot /tmp/screen_locked.png; mogrify -scale 10% -scale 1000% /tmp/screen_locked.png; i3lock -i /tmp/screen_locked.png'
+{% endif %}
 
 # Start Default Applications
 {% for application in i3_applications if application.on_startup %}
