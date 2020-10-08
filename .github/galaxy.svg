@@ -22,7 +22,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
         <cc:license
            rdf:resource="MIT (c) L3D &lt;l3d@c3woc.de&gt;" />
         <dc:creator>
@@ -86,9 +86,9 @@
      showgrid="false"
      showguides="true"
      inkscape:guide-bbox="true"
-     inkscape:zoom="6.5867645"
-     inkscape:cx="96.200699"
-     inkscape:cy="16.729387"
+     inkscape:zoom="18.584145"
+     inkscape:cx="122.44969"
+     inkscape:cy="8.0398753"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
@@ -103,6 +103,10 @@
        orientation="0,1"
        id="guide4567"
        inkscape:locked="false" />
+    <sodipodi:guide
+       position="88.78536,11.919539"
+       orientation="0,-1"
+       id="guide879" />
   </sodipodi:namedview>
   <linearGradient
      id="b"
@@ -321,7 +325,8 @@
        inkscape:connector-curvature="0" />
   </g>
   <g
-     id="g1014">
+     id="g1014"
+     transform="matrix(0.8408844,0,0,0.8408844,18.618072,2.3099815)">
     <g
        transform="translate(0,20)"
        id="text870"
