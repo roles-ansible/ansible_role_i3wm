@@ -1,21 +1,18 @@
  I3 Window Manager - ansible role
 =========================================
 
-*Install and deploy a basic configuration of [I3 Window Manager](https://i3wm.org/) via ansible.*
+Install and deploy a basic configuration of [I3 Window Manager](https://i3wm.org/) via ansible.<br/>
+Optionally configure your resolution, which applications will be bound to which screen and what will be included in the autostart.<br/>
+If you want to use wayland instead of xorg, think about using [sway](https://swaywm.org/) as window manager. The corresponding ansible is located on [github.com/roles-ansible/role-sway](https://github.com/roles-ansible/role-sway.git).
 
 [![Build Status](https://travis-ci.org/chaos-bodensee/role-i3wm.svg?branch=master)](https://travis-ci.org/chaos-bodensee/role-i3wm)
+[![MIT License](https://raw.githubusercontent.com/chaos-bodensee/role-i3wm/master/.github/license.svg?sanitize=true)](https://github.com/chaos-bodensee/role-i3wm/blob/master/LICENSE)
+[![MIT License](https://raw.githubusercontent.com/chaos-bodensee/role-i3wm/master/.github/galaxy.svg?sanitize=true)](https://galaxy.ansible.com/do1jlr/i3wm)
 
-<a href="https://galaxy.ansible.com/do1jlr/i3wm"><img width="80px" src="https://galaxy.ansible.com/assets/galaxy-logo-02.svg"/></a>
-
-### Get it directly from Ansible Galaxy 
+### Get it directly from Ansible Galaxy
 ```bash
 $ ansible-galaxy install do1jlr.i3wm
 ```
-
- Requirements
-------------
-
-No requirements.
 
  Role Variables
 --------------
@@ -30,9 +27,9 @@ Including an example of how to use your role (for instance, with variables passe
 ```bash
     - hosts: all
       vars_files:
-        - vars/main.yml    
+        - vars/main.yml
       roles:
-        - { role: i3 }
+        - { role: i3, tags[i3,i3wm] }
 ```
 *`vars/main.yml`*
 
