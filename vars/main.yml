@@ -33,5 +33,5 @@ __i3_workspaces:
 
 user: "{{ i3wm_user }}"
 
-playbook_version_number: 9012 # should be over ninethousand
+playbook_version_number: 9013 # should be over ninethousand
 playbook_version_path: 'role-i3wm_chaos-bodensee_github.com.version'
