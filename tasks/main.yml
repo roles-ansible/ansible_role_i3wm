@@ -19,6 +19,8 @@
 
 # create i3 config file
 - name: Creates directory
+  become: true
+  become_user: "{{ i3wm_user }}"
   file:
     path: '/home/{{ i3wm_user }}/.config'
     state: directory
@@ -26,50 +28,23 @@
     owner: "{{ i3wm_user }}"
 
 - name: create i3 config folder
+  become: true
+  become_user: "{{ i3wm_user }}"
   file:
     path: '/home/{{ i3wm_user }}/.config/i3/'
     state: directory
     mode: 0755
     owner: "{{ i3wm_user }}"
 
-- name: register i3 config file
-  action: stat path="/home/{{ i3wm_user }}/.config/i3/config"
-  register: "config_file"
-
-- name: backup i3 config file
-  block:
-
-    - name: backup i3 config file if exists
-      copy:
-        src: "/home/{{ i3wm_user }}/.config/i3/config"
-        dest: "/home/{{ i3wm_user }}/.config/i3/config.bakup"
-        mode: 0600
-        remote_src: true
-      when: config_file.stat.exists
-
-    - name: create i3 config file
-      template:
-        src: config.j2
-        dest: "/home/{{ i3wm_user }}/.config/i3/config"
-        mode: 0644
-
-    - name: check i3 config file
-      command: "i3 -C -c /home/{{ i3wm_user }}/.config/i3/config"
-      register: check_config_response
-      failed_when: check_config_response.stdout.find('ERROR') != -1
-  rescue:
-
-    - name: register backup i3 config file
-      action: stat path="~/.config/i3/config.bak"
-      register: "config_file_backup"
-
-    - name: restore backup file
-      copy:
-        src: ~/.config/i3/config.bak
-        dest: ~/.config/i3/config
-        remote_src: true
-        mode: 0644
-      when: config_file_backup.stat.exists
+- name: copy and validate i3wm config file
+  become: true
+  become_user: "{{ i3wm_user }}"
+  template:
+    src: templates/config.j2
+    dest: "/home/{{ i3wm_user }}/.config/i3/config"
+    mode: 0600
+    backup: true
+    validate: i3 -C -c %s
 
 - name: copy files
   copy:
