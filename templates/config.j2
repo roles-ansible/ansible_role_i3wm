@@ -1,6 +1,6 @@
 set $mod Mod4
 
-set $term terminator
+set $term {{ i3_terminal }}
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -23,7 +23,8 @@ bindsym $mod+d exec dmenu_run
 {%- else -%}
 bindsym $mod+d exec rofi -show run
 # bindsym $mod+d exec rofi (a program launcher)
-bindsym $mod+Shift+d exec rofi -show window
+bindsym $mod+Shift+d exec rofi -show drun
+bindsym $mod+Shift+y exec rofi -show window
 bindsym $mod+Shift+s exec rofi -show ssh
 {% endif %}
 
@@ -96,6 +97,10 @@ set $workspace{{ workspace.id }} "{{ workspace.name }}"
 bindsym $mod+{{ workspace.id }} workspace $workspace{{ workspace.id }}
 {% endfor %}
 
+# toggle workspace
+bindsym $mod+Tab workspace next_on_output
+bindsym $mod+Shift+Tab workspace prev_on_output
+
 # move focused container to workspace
 {% for workspace in i3_workspaces %}
 bindsym $mod+Shift+{{ workspace.id }} move container to workspace $workspace{{ workspace.id }}
@@ -150,7 +155,11 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3status
+    font pango:mono {{ i3_font_size }}
+    status_command i3blocks
+    position top
+    mode dock
+    modifier None
 }
 
 # Setup Monitors
