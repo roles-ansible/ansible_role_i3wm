@@ -2,7 +2,6 @@
 __i3_packages:
   - i3
   - rofi
-  - compton
   - feh
   - tmux
   - terminator

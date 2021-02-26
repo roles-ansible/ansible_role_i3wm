@@ -1,7 +1,6 @@
 ---
 __i3_packages:
   - i3
-  - compton
   - feh
   - tmux
   - terminator
