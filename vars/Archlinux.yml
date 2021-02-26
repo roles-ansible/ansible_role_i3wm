@@ -13,5 +13,5 @@ __i3_packages:
   - terminator
   - i3lock
   - xautolock
-  - scrot
+  - maim
   - imagemagick

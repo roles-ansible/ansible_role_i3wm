@@ -8,5 +8,5 @@ __i3_packages:
   - i3lock
   - rofi
   - xautolock
-  - scrot
   - ImageMagick
+  - maim
