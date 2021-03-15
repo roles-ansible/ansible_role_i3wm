@@ -1,6 +1,7 @@
 ---
 __i3_packages:
   - i3
+  - i3blocks
   - rofi
   - feh
   - tmux
