@@ -3,12 +3,16 @@ separator_block_width=15
 markup=pango
 
 [weather]
-command=curl -Ss 'https://wttr.in?0&T&Q' | cut -c 16- | head -2 | xargs echo
-interval=3600
+command=curl -Ss 'https://wttr.in?0&T' | cut -c 16- | head -4 | tail -2 | xargs echo
+interval=1800
 color=#A4C2F4
 
 [volume]
 interval=30
+signal=10
+
+[wlan]
+interval=1
 signal=10
 
 [ip]
@@ -18,11 +22,11 @@ label=🖥️
 color=#91E78B
 
 [clock]
-label=🕒 
+label=🕒
 command=date --iso-8601=seconds
 interval=1
 
 [ddate]
-label=🚀 
+label=🚀
 command=ddate +'%{%A, %d %B%}, %Y %N%tCelebrate %H'
 interval=120
