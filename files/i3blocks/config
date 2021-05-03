@@ -28,5 +28,5 @@ interval=1
 
 [ddate]
 label=🚀
-command=ddate +'%{%A, %d %B%}, %Y %N%tCelebrate %H'
+command=ddate +'%{%A, %d %B%}, %Y%N, Celebrate %H'
 interval=120
