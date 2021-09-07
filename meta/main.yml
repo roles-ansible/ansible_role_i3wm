@@ -1,28 +1,24 @@
 ---
 galaxy_info:
-  author: L3D
   role_name: i3wm
+  author: do1jlr
   description: Install and configure i3wm on common linux distibutions (https://i3wm.org/)
   license: "MIT"
-  min_ansible_version: 2.3
-  github_branch: master
+  min_ansible_version: 2.11
+  github_branch: main
   platforms:
     - name: Archlinux
       versions: all
     - name: Debian
-      versions:
-        - stretch
-        - jessie
+      versions: all
     - name: Ubuntu
-      versions:
-        - bionic
+      versions: all
     - name: Fedora
-      versions:
-        - 28
-        - 29
+      versions: all
   galaxy_tags:
     - i3wm
-    - arch
     - desktop
     - linux
+    - xorg
+    - wayland
 dependencies: []
