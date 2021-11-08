@@ -3,7 +3,7 @@ separator_block_width=15
 markup=pango
 
 [weather]
-command=curl -Ss 'wttr.in?format="%l:+%c%t+%w\n"' | xargs echo
+command=curl -Ss 'https://wttr.in?format="%l:+%c%t+%w"' | xargs echo
 interval=600
 color=#A4C2F4
 
