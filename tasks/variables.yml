@@ -1,46 +1,46 @@
 ---
 - name: register os-specific variables
-  include_vars: "{{ ansible_os_family }}.yml"
+  ansible.builtin.include_vars: "{{ ansible_os_family }}.yml"
   when: ansible_distribution != "Fedora"
 
 - name: register Fedora variables
-  include_vars: "{{ ansible_distribution }}.yml"
+  ansible.builtin.include_vars: "{{ ansible_distribution }}.yml"
   when: ansible_distribution == "Fedora"
 
 # i3 packages
 - name: define i3_packages
-  set_fact:
+  ansible.builtin.set_fact:
     i3_packages: "{{ __i3_packages | list }}"
   when: i3_packages is not defined
 
 - name: define i3_packages_extra
-  set_fact:
+  ansible.builtin.set_fact:
     i3_packages: "{{ i3_packages | list + i3_packages_extra | list }}"
   when: i3_packages_extra is defined
 
 # i3 workspaces
 - name: define i3_packages
-  set_fact:
+  ansible.builtin.set_fact:
     i3_workspaces: "{{ __i3_workspaces | list }}"
   when: i3_workspaces is not defined
 
 # i3 keybindings
 - name: define i3_packages
-  set_fact:
+  ansible.builtin.set_fact:
     i3_keybindings: "{{ __i3_keybindings | list }}"
   when:
     - i3_keybindings is not defined
     - __i3_keybindings is defined
 
 - name: define extra i3 keybindings
-  set_fact:
+  ansible.builtin.set_fact:
     i3_keybindings: "{{ i3_keybindings_extra | list + i3_keybindings | list }}"
   when:
     - i3_keybindings_extra is defined
     - i3_keybindings is defined
 
 - name: define extra i3 keybindings
-  set_fact:
+  ansible.builtin.set_fact:
     i3_keybindings: "{{ i3_keybindings_extra | list }}"
   when:
     - i3_keybindings_extra is defined

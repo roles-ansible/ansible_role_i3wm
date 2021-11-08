@@ -5,7 +5,6 @@ Install and deploy a basic configuration of [I3 Window Manager](https://i3wm.org
 Optionally configure your resolution, which applications will be bound to which screen and what will be included in the autostart.<br/>
 If you want to use wayland instead of xorg, think about using [sway](https://swaywm.org/) as window manager. The corresponding ansible is located on [github.com/roles-ansible/role-sway](https://github.com/roles-ansible/role-sway.git).
 
-[![Build Status](https://travis-ci.org/chaos-bodensee/role-i3wm.svg?branch=master)](https://travis-ci.org/chaos-bodensee/role-i3wm)
 [![MIT License](https://raw.githubusercontent.com/chaos-bodensee/role-i3wm/master/.github/license.svg?sanitize=true)](https://github.com/chaos-bodensee/role-i3wm/blob/master/LICENSE)
 [![MIT License](https://raw.githubusercontent.com/chaos-bodensee/role-i3wm/master/.github/galaxy.svg?sanitize=true)](https://galaxy.ansible.com/do1jlr/i3wm)
 

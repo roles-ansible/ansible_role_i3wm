@@ -3,8 +3,8 @@ separator_block_width=15
 markup=pango
 
 [weather]
-command=curl -Ss 'https://wttr.in?0&T' | cut -c 16- | head -4 | tail -2 | xargs echo
-interval=1800
+command=curl -Ss 'wttr.in?format="%l:+%c%t+%w\n"' | xargs echo
+interval=600
 color=#A4C2F4
 
 [volume]
