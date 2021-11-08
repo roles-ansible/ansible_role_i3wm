@@ -10,7 +10,8 @@ if [[ -z "$IFACE" ]] ; then
     elif ( ip a s dev wlan0 ) > /dev/null 2>& 1 ; then
         IFACE="wlan0"
     else
-        exit 1
+        # No wlan interface found
+        exit 0
     fi
 fi
 
