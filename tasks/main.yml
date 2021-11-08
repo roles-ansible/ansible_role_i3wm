@@ -1,65 +1,22 @@
 ---
-- include_tasks: versioncheck.yml
+- name: run optional versionscheck
+  ansible.builtin.include_tasks: versioncheck.yml
   when: submodules_versioncheck|bool
 
 - name: register variables
-  import_tasks: variables.yml
+  ansible.builtin.import_tasks: variables.yml
 
-# ensure i3 packages are installed [Debian].
-- include_tasks: setup-Debian.yml
+- name: ensure i3 packages are installed [Debian]
+  ansible.builtin.include_tasks: setup-Debian.yml
   when: ansible_os_family == 'Debian'
 
-# ensure i3 packages are installed [Archlinux}
-- include_tasks: setup-Archlinux.yml
+- name: ensure i3 packages are installed [Archlinux}
+  ansible.builtin.include_tasks: setup-Archlinux.yml
   when: ansible_os_family == 'Archlinux'
 
-# ensure i3 packages are installed [RHEL].
-- include_tasks: setup-RedHat.yml
+- name: ensure i3 packages are installed [RHEL].
+  ansible.builtin.include_tasks: setup-RedHat.yml
   when: ansible_os_family == 'Fedora' or ansible_os_family == 'RedHat'
 
-# create i3 config file
-- name: Creates directory
-  become: true
-  become_user: "{{ i3wm_user }}"
-  file:
-    path: '/home/{{ i3wm_user }}/.config'
-    state: directory
-    mode: 0750
-    owner: "{{ i3wm_user }}"
-
-- name: create i3 config folder
-  become: true
-  become_user: "{{ i3wm_user }}"
-  file:
-    path: '/home/{{ i3wm_user }}/.config/i3/'
-    state: directory
-    mode: 0755
-    owner: "{{ i3wm_user }}"
-
-- name: copy multiple images
-  copy:
-    src: "{{ item.src }}"
-    dest: "{{ item.dest }}"
-    mode: 0644
-  with_items:
-    - { src: 'files/background.png', dest: "/home/{{ i3wm_user }}/.config/background.png" }
-    - { src: 'files/lockscreen.png', dest: '/home/{{ i3wm_user }}/.config/lockscreen.png' }
-  when: i3wm_copy_wallpapers | bool
-
-- name: copy and validate i3wm config file
-  become: true
-  become_user: "{{ i3wm_user }}"
-  template:
-    src: templates/config.j2
-    dest: "/home/{{ i3wm_user }}/.config/i3/config"
-    mode: 0600
-    backup: true
-    validate: i3 -C -c %s
-
-- name: vim - copy bin src folder
-  become: true
-  become_user: "{{ i3wm_user }}"
-  copy:
-    src: "{{ role_path }}/files/i3blocks/"
-    dest: "~/.config/i3blocks"
-    mode: 0755
+- name: create i3 config file
+  ansible.builtin.include_tasks: config.yml

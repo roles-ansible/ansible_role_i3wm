@@ -1,6 +1,6 @@
 ---
 - name: ensure i3 packages are installed.
-  pacman:
+  ansible.builtin.pacman:
     name: "{{ i3_packages }}"
     state: present
     update_cache: true
