@@ -40,11 +40,32 @@
     owner: "{{ i3wm_user }}"
     group: "{{ i3wm_user }}"
 
-- name: copy bin src folder
-  become: true
-  ansible.builtin.copy:
-    src: "{{ role_path }}/files/i3blocks/"
-    dest: "~/.config/i3blocks"
-    mode: 0755
+# todo: rewrite user stuff and support multiple users
+- name: mkdir ~/.config/i3blocks/
+  ansible.builtin.file:
+    path: ~/.config/i3blocks/
+    state: directory
+    mode: '0755'
     owner: "{{ i3wm_user }}"
     group: "{{ i3wm_user }}"
+
+- name: copy i3blocks config
+  become: true
+  ansible.builtin.copy:
+    src: "files/i3blocks/config"
+    dest: "/home/{{ i3wm_user }}/.config/i3blocks/config"
+    mode: 0640
+    owner: "{{ i3wm_user }}"
+    group: "{{ i3wm_user }}"
+
+- name: copy i3blocks config
+  become: true
+  ansible.builtin.copy:
+    src: "files/i3blocks/{{ item }}"
+    dest: "/home/{{ i3wm_user }}/.config/i3blocks/{{ item }}"
+    mode: 0750
+    owner: "{{ i3wm_user }}"
+    group: "{{ i3wm_user }}"
+  with_items:
+    - 'volume'
+    - 'wlan'
