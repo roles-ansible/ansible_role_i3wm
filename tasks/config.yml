@@ -42,8 +42,9 @@
 
 # todo: rewrite user stuff and support multiple users
 - name: mkdir ~/.config/i3blocks/
+  become: true
   ansible.builtin.file:
-    path: ~/.config/i3blocks/
+    path: "/home/{{ i3wm_user }}/.config/i3blocks/"
     state: directory
     mode: '0755'
     owner: "{{ i3wm_user }}"
