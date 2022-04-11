@@ -23,22 +23,19 @@ For a good overview about possible variables, please have a look into ``defaults
 
 Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
 
-```bash
-    - hosts: all
+```yaml
+    - name: install i3wm on localhost
+      hosts: localhost
       vars_files:
         - vars/main.yml
       roles:
-        - { role: i3, tags[i3,i3wm] }
+        - {role: do1jlr.i3wm, tags[i3,i3wm]}
 ```
 *`vars/main.yml`*
 
-```bash
+```yaml
     # background image
     i3_desktop_background: "~/Bilder/wallpaper.jpg"
-
-    # additional programms you need
-    i3_packages_extra:
-      - ranger
 
     # you want additional keybindings?
     i3_keybindings_extra:
@@ -55,18 +52,18 @@ Including an example of how to use your role (for instance, with variables passe
     i3_monitors:
       - monitor:
         id: 1
-        output: "VGA-1"
+        output: "HDMI-A-0"
         mode: "1920x1080"
         pos: "0x0"
         rotate: "normal"
-        workspaces: [1,2,3,4,5,6]
+        workspaces: [0,1,2,3,4,5,6]
       - monitor:
         id: 2
-        output: "HDMI-1"
+        output: "DisplayPort-0"
         mode: "1920x1080"
         pos: "1920x0"
         rotate: "normal"
-        workspaces: [7,8,9,0]
+        workspaces: [7,8,9]
 
     # startup applications
     i3_applications:
