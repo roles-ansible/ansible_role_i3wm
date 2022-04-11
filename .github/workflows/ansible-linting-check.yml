@@ -10,17 +10,13 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - name: 'checkout git repo'
+        uses: actions/checkout@v3
 
-      - name: Lint Ansible Playbook
-        uses: ansible/ansible-lint-action@master
+      - name: 'Lint Ansible Playbook'
+        uses: ansible/ansible-lint-action@v6
         with:
           targets: "."
-          # [required]
-          # Paths to ansible files (i.e., playbooks, tasks, handlers etc..)
-          args: ""
-          # [optional]
