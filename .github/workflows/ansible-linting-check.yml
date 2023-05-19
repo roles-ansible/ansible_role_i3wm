@@ -10,11 +10,14 @@ on:
 
 jobs:
   build:
+
     runs-on: ubuntu-latest
 
     steps:
-      - name: 'checkout git repo'
+      - name: 'Checkout git repo'
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
       - name: 'Lint Ansible Playbook'
         uses: ansible/ansible-lint-action@v6
