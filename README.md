@@ -2,7 +2,7 @@
 [![MIT License](https://ansible.l3d.space/svg/l3d.i3wm_license.svg)](LICENSE)
 [![Maintainance](https://ansible.l3d.space/svg/l3d.i3wm_maintainance.svg)](https://ansible.l3d.space/#l3d.i3wm)
 
-I3 Window Manager - ansible rolei
+I3 Window Manager - ansible role
 =========================================
 
 Install and deploy a basic configuration of [I3 Window Manager](https://i3wm.org/) via ansible.<br/>
