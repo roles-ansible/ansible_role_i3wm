@@ -8,7 +8,7 @@
     owner: "{{ i3wm_user }}"
     group: "{{ i3wm_user }}"
 
-- name: create i3 config folder
+- name: Create i3 config folder
   become: true
   ansible.builtin.file:
     path: '/home/{{ i3wm_user }}/.config/i3/'
@@ -17,7 +17,7 @@
     owner: "{{ i3wm_user }}"
     group: "{{ i3wm_user }}"
 
-- name: copy multiple images
+- name: Copy multiple images
   ansible.builtin.copy:
     src: "{{ item.src }}"
     dest: "{{ item.dest }}"
@@ -29,7 +29,7 @@
     - { src: 'files/lockscreen.png', dest: '/home/{{ i3wm_user }}/.config/lockscreen.png' }
   when: i3wm_copy_wallpapers | bool
 
-- name: copy and validate i3wm config file
+- name: Copy and validate i3wm config file
   become: true
   ansible.builtin.template:
     src: templates/config.j2
@@ -41,7 +41,7 @@
     group: "{{ i3wm_user }}"
 
 # todo: rewrite user stuff and support multiple users
-- name: mkdir ~/.config/i3blocks/
+- name: Mkdir ~/.config/i3blocks/
   become: true
   ansible.builtin.file:
     path: "/home/{{ i3wm_user }}/.config/i3blocks/"
@@ -50,7 +50,7 @@
     owner: "{{ i3wm_user }}"
     group: "{{ i3wm_user }}"
 
-- name: copy i3blocks config
+- name: Copy i3blocks config
   become: true
   ansible.builtin.copy:
     src: "files/i3blocks/config"
@@ -59,7 +59,7 @@
     owner: "{{ i3wm_user }}"
     group: "{{ i3wm_user }}"
 
-- name: copy i3blocks config
+- name: Copy i3blocks config
   become: true
   ansible.builtin.copy:
     src: "files/i3blocks/{{ item }}"
