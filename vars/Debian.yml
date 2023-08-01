@@ -10,3 +10,5 @@ __i3_packages:
   - xautolock
   - maim
   - imagemagick
+  - fonts-fork-awesome
+  - pulsemixer
