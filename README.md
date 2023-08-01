@@ -9,12 +9,9 @@ Install and deploy a basic configuration of [I3 Window Manager](https://i3wm.org
 Optionally configure your resolution, which applications will be bound to which screen and what will be included in the autostart.<br/>
 If you want to use wayland instead of xorg, think about using [sway](https://swaywm.org/) as window manager. The corresponding ansible is located on [github.com/roles-ansible/role-sway](https://github.com/roles-ansible/role-sway.git).
 
-[![MIT License](https://raw.githubusercontent.com/chaos-bodensee/role-i3wm/master/.github/license.svg?sanitize=true)](https://github.com/chaos-bodensee/role-i3wm/blob/master/LICENSE)
-[![MIT License](https://raw.githubusercontent.com/chaos-bodensee/role-i3wm/master/.github/galaxy.svg?sanitize=true)](https://galaxy.ansible.com/do1jlr/i3wm)
-
 ### Get it directly from Ansible Galaxy
 ```bash
-$ ansible-galaxy install do1jlr.i3wm
+$ ansible-galaxy install l3d.i3wm
 ```
 
  Role Variables
@@ -22,22 +19,23 @@ $ ansible-galaxy install do1jlr.i3wm
 
 For a good overview about possible variables, please have a look into ``defaults/main.yml``.
 
- Example Playbook
-----------------
-
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
-
+## Example Usage
 ```yaml
-    - name: install i3wm on localhost
-      hosts: localhost
-      vars_files:
-        - vars/main.yml
-      roles:
-        - {role: do1jlr.i3wm, tags[i3,i3wm]}
+ - name: install i3wm on localhost
+   hosts: localhost
+   vars_files:
+     - vars/main.yml
+   roles:
+     - {role: l3d.i3wm, tags[i3, i3wm]}
 ```
 *`vars/main.yml`*
 
 ```yaml
+    # User List for i3wm config
+    i3wm_user_list:
+      - 'alice'
+      - 'bob'
+
     # background image
     i3_desktop_background: "~/Bilder/wallpaper.jpg"
 
