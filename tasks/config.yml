@@ -18,6 +18,7 @@
     group: "{{ i3wm_usr.user }}"
 
 - name: Copy multiple images
+  become: true
   ansible.builtin.copy:
     src: "{{ item.src }}"
     dest: "{{ item.dest }}"

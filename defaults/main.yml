@@ -34,7 +34,7 @@ i3wm_user_list:
     home: "{{ ansible_env.HOME | default('/home/{{ ansible_user_id }}') }}"
 
 ## set default font size
-i3_font_size: 10
+i3_font_size: 11
 i3_focus_follows_mouse: true
 
 # set i3lock options
@@ -60,6 +60,7 @@ i3_terminal: "terminator"
 # install additional packages
 i3_packages_extra:
   - ranger
+  - fonts-fork-awesome
 
 i3wm_copy_wallpapers: true
 

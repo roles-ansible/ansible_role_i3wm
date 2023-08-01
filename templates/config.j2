@@ -10,6 +10,13 @@ focus_follows_mouse {% if i3_focus_follows_mouse | bool %}yes{% else %}no{% endi
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+# startup apps and window decs
+default_orientation horizontal
+workspace_layout tabbed
+
+# Hide borders
+hide_edge_borders smart
+
 # start a terminal
 bindsym $mod+Return exec $term
 bindsym $mod+Shift+Return exec $term -e tmux

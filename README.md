@@ -33,8 +33,10 @@ For a good overview about possible variables, please have a look into ``defaults
 ```yaml
     # User List for i3wm config
     i3wm_user_list:
-      - 'alice'
-      - 'bob'
+      - user: "alice"
+        home: "/home/alice"
+      - user: "bob"
+        home: "/home/bob"
 
     # background image
     i3_desktop_background: "~/Bilder/wallpaper.jpg"
@@ -80,6 +82,21 @@ For a good overview about possible variables, please have a look into ``defaults
         workspace: 7
         on_startup: true
 
-    # lock your screen after 3 hours
+    # lock your screen after 90 min
     enable_lock_after_time: true
+
+    files/rofi/dracula_dark.rasi
+
+    # enable multiple i3blocks options
+    i3_i3blocks_options:
+      weather: true
+      audio_volume: true
+      wifisignal: true
+      ipaddress: true
+      clock: true
+      battery: true
+      ddate: true
+
+    # choose rofi theme
+    i3_rofi_config_file: 'files/rofi/dracula_dark.rasi'
 ```
