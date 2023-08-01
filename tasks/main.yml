@@ -1,7 +1,7 @@
 ---
 - name: Run optional versionscheck
   ansible.builtin.include_tasks: versioncheck.yml
-  when: submodules_versionchecki | bool
+  when: submodules_versioncheck | bool
 
 - name: Register variables
   ansible.builtin.import_tasks: variables.yml
@@ -20,3 +20,6 @@
 
 - name: Create i3 config file
   ansible.builtin.include_tasks: config.yml
+  loop: "{{ i3wm_user_list | flatten(1) }}"
+  loop_control:
+    loop_var: i3wm_usr

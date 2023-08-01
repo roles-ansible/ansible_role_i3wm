@@ -1,0 +1,52 @@
+command=~/.config/i3blocks/$BLOCK_NAME
+separator_block_width=18
+markup=pango
+
+{% if i3_i3blocks_options.weather | bool %}
+[weather]
+command=curl -Ss 'https://wttr.in?format="%l:+%c%t+%w"' | xargs echo
+interval=600
+color=#A4C2F4
+{% endif %}
+
+{% if i3_i3blocks_options.audio_volume | bool %}
+[volume]
+command={{ i3wm_usr.home }}/.config/i3blocks/volume.sh
+interval=30
+signal=10
+{% endif %}
+
+{% if i3_i3blocks_options.wifisignal | bool %}
+[wlan]
+command={{ i3wm_usr.home }}/.config/i3blocks/wlan.sh
+interval=1
+signal=10
+{% endif %}
+
+{% if i3_i3blocks_options.ipaddress | bool %}
+[ip]
+command=hostname -i | awk '{ print "  IPv4: " $1 }'
+interval=120
+label=🖥️
+{% endif %}
+
+{% if i3_i3blocks_options.clock | bool %}
+[clock]
+command=date --rfc-3339=seconds
+color=#88ff0a
+interval=1
+{% endif %}
+
+{% if i3_i3blocks_options.battery | bool %}
+[battery]
+command={{ i3wm_usr.home }}/.config/i3blocks/battery.py
+markup=pango
+interval=30
+{% endif %}
+
+{% if i3_i3blocks_options.ddate | bool %}
+[ddate]
+label=🚀
+command=ddate +'%A, %d %B, %Y%N, Celebrate %H'
+interval=120
+{% endif %}
