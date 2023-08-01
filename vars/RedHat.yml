@@ -9,3 +9,5 @@ __i3_packages:
   - xautolock
   - maim
   - ImageMagick
+  - fonts-fork-awesome
+  - pulsemixer

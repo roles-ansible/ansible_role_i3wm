@@ -60,7 +60,6 @@ i3_terminal: "terminator"
 # install additional packages
 i3_packages_extra:
   - ranger
-  - fonts-fork-awesome
 
 i3wm_copy_wallpapers: true
 

@@ -1,8 +1,8 @@
 ---
 __i3_packages:
-#  - i3
+  - i3
   - i3-gaps
-#  - i3-wm
+  # - i3-wm
   - i3blocks
   - i3lock
   - i3status
@@ -14,3 +14,5 @@ __i3_packages:
   - xautolock
   - maim
   - imagemagick
+  - fonts-fork-awesome
+  - pulsemixer
