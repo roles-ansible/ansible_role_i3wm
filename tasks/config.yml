@@ -69,7 +69,7 @@
     group: "{{ i3wm_usr.user }}"
   with_items:
     - 'volume.sh'
-    - 'wlan.sh'
+    - 'wlan.py'
     - 'battery.py'
 
 - name: Create rofi config folder
