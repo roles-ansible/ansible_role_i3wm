@@ -5,7 +5,7 @@ set $term {{ i3_terminal }}
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 font pango:monospace {{ i3_font_size }}
-focus_follows_mouse {% if i3_focus_follows_mouse | bool %}yes{% else %}no{% endif %}
+focus_follows_mouse {{ i3_focus_follows_mouse | tenary('yes', 'no' ) }}
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -27,7 +27,7 @@ bindsym $mod+Shift+q kill
 {% if ansible_distribution == 'Redhat' or ansible_distribution == 'CentOS' %}
 # bindsym $mod+d exec dmenu_run (a program launcher)
 bindsym $mod+d exec dmenu_run
-{%- else -%}
+{% else %}
 bindsym $mod+d exec rofi -show run
 # bindsym $mod+d exec rofi (a program launcher)
 bindsym $mod+Shift+d exec rofi -show drun
@@ -114,9 +114,9 @@ bindsym $mod+Shift+{{ workspace.id }} move container to workspace $workspace{{ w
 {% endfor %}
 
 {% for monitor in i3_monitors %}
-{% for workspace in monitor.workspaces %}
+{%     for workspace in monitor.workspaces %}
 workspace $workspace{{ workspace }} output {{ monitor.output }}
-{% endfor %}
+{%     endfor %}
 {% endfor %}
 
 {% for application in i3_applications %}
@@ -170,7 +170,13 @@ bar {
 }
 
 # Setup Monitors
-exec_always sleep 1 && xrandr {% for monitor in i3_monitors %} --output {{ monitor.output }} --mode {{ monitor.mode }} --pos {{ monitor.pos }} --rotate {{ monitor.rotate }} {% endfor %}
+exec_always sleep 1 && xrandr \
+{% for monitor in i3_monitors %} \
+  --output {{ monitor.output }} \
+  --mode {{ monitor.mode }} \
+  --pos {{ monitor.pos }} \
+  --rotate {{ monitor.rotate }}
+{% endfor %}
 
 # Background
 {% if i3_desktop_background is defined %}
@@ -199,5 +205,4 @@ exec sleep 4 && {{ app }}
 # Register Keybindings
 {% for keybinding in i3_keybindings %}
 bindsym {{ keybinding.key }} exec {{ keybinding.exec }}
-{% endfor%}
-
+{% endfor %}

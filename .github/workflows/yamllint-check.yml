@@ -1,12 +1,12 @@
 ---
-name: Ansible Lint check
+name: Yamllint check
 
 # yamllint disable-line rule:truthy
 on: [push, pull_request]
 
 jobs:
   build:
-    name: Ansible Lint
+    name: Yamllint
     runs-on: ubuntu-latest
 
     steps:
@@ -16,7 +16,7 @@ jobs:
           submodules: true
           fetch-depth: 0
 
-      - name: Run ansible-lint
-        uses: ansible-actions/ansible-lint-action@v1.0.2
+      - name: Run yamllint
+        uses: ansible-actions/yamllint-action@v0.0.1
         with:
           target: "./"
