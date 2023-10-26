@@ -1,4 +1,4 @@
-[![Ansible Galaxy](https://ansible.l3d.space/svg/l3d.i3wm.svg)](https://galaxy.ansible.com/l3d/i3wm)
+[![Ansible Galaxy](https://ansible.l3d.space/svg/l3d.i3wm.svg)](https://galaxy.ansible.com/ui/standalone/roles/l3d/i3wm/)
 [![MIT License](https://ansible.l3d.space/svg/l3d.i3wm_license.svg)](LICENSE)
 [![Maintainance](https://ansible.l3d.space/svg/l3d.i3wm_maintainance.svg)](https://ansible.l3d.space/#l3d.i3wm)
 
