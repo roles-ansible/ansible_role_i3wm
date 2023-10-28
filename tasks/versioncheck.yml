@@ -14,17 +14,16 @@
   become: true
   ansible.builtin.slurp:
     src: "/etc/.ansible-version/{{ playbook_version_path }}"
-  register: i3wm_playbook_version
+  register: playbook_version
   when: submodules_versioncheck | bool
-  ignore_errors: true
   failed_when: false
 
-- name: Print remote role version
+- name: Print remote role version  # noqa: H500
   ansible.builtin.debug:
-    msg: "Remote role version: {{ i3wm_playbook_version.content | default('Y3VycmVudGx5IG5vdCBkZXBsb3llZAo=') | b64decode | string }}"
+    msg: "Remote role version: {{ playbook_version.content | default('Y3VycmVudGx5IG5vdCBkZXBsb3llZAo=') | b64decode | string }}"
   when: submodules_versioncheck | bool
 
-- name: Print locale role version
+- name: Print locale role version  # noqa: H500
   ansible.builtin.debug:
     msg: "Local role version: '{{ playbook_version_number | string }}'."
   when: submodules_versioncheck | bool
@@ -33,7 +32,7 @@
   ansible.builtin.fail:
     msg: "Your ansible module has the version '{{ playbook_version_number }}' and is outdated. You need to update it!"
   when:
-    - i3wm_playbook_version.content|default("Mgo=")|b64decode|int - 1 >= playbook_version_number|int and submodules_versioncheck | bool
+    - playbook_version.content|default("Mgo=")|b64decode|int - 1 >= playbook_version_number|int and submodules_versioncheck | bool
 
 - name: Write new version to remote disk
   become: true

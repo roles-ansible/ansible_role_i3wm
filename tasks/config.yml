@@ -25,7 +25,7 @@
     mode: 0644
     owner: "{{ i3wm_usr.user }}"
     group: "{{ i3wm_usr.user }}"
-  with_items:
+  loop:
     - { src: 'files/background.png', dest: "{{ i3wm_usr.home }}/.config/background.png" }
     - { src: 'files/lockscreen.png', dest: '{{ i3wm_usr.home }}/.config/lockscreen.png' }
   when: i3wm_copy_wallpapers | bool
@@ -67,7 +67,7 @@
     mode: 0750
     owner: "{{ i3wm_usr.user }}"
     group: "{{ i3wm_usr.user }}"
-  with_items:
+  loop:
     - 'volume.sh'
     - 'wlan.py'
     - 'battery.py'
