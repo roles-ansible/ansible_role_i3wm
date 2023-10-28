@@ -100,3 +100,10 @@ For a good overview about possible variables, please have a look into ``defaults
     # choose rofi theme
     i3_rofi_config_file: 'files/rofi/dracula_dark.rasi'
 ```
+
+## Requirements
+The ``community.general`` collection is required for some parts of this ansible role.
+You can install it with this command:
+```bash
+ansible-galaxy collection install -r requirements.yml --upgrade
+```
