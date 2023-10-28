@@ -1,5 +1,5 @@
 ---
-- name: Ensure i3 packages are installed.
+- name: Ensure i3 packages are installed  # noqa: H1901
   community.general.pacman:
     name: "{{ i3_packages }}"
     state: present
