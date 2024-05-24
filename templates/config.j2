@@ -195,11 +195,11 @@ exec xautolock -time {{ lock_after_time }} -locker 'maim /tmp/screen_locked.png;
 
 # Start Default Applications
 {% for application in i3_applications if application.on_startup %}
-exec sleep 3 && {{ application.name }}
+exec sleep 5 && {{ application.name }}
 {% endfor %}
 
 {% for app in i3_run_on_startup %}
-exec sleep 4 && {{ app }}
+exec sleep 12 && {{ app }}
 {% endfor %}
 
 # Register Keybindings
