@@ -1,9 +1,12 @@
-[![Ansible Galaxy](https://ansible.l3d.space/svg/l3d.i3wm.svg)](https://galaxy.ansible.com/ui/standalone/roles/l3d/i3wm/)
 [![MIT License](https://ansible.l3d.space/svg/l3d.i3wm_license.svg)](LICENSE)
-[![Maintainance](https://ansible.l3d.space/svg/l3d.i3wm_maintainance.svg)](https://ansible.l3d.space/#l3d.i3wm)
 
-I3 Window Manager - ansible role
+SWAY Window Manager - ansible role
 =========================================
+
+```
+WORK IN PROGRESS
+IGNORE ALL OTHER PART IN README
+```
 
 Install and deploy a basic configuration of [I3 Window Manager](https://i3wm.org/) via ansible.<br/>
 Optionally configure your resolution, which applications will be bound to which screen and what will be included in the autostart.<br/>

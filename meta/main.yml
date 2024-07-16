@@ -1,8 +1,8 @@
 ---
 galaxy_info:
-  role_name: i3wm
+  role_name: sway
   author: l3d
-  description: Install and configure i3wm on common linux distibutions (https://i3wm.org/)
+  description: Install and configure swaywm on common linux distibutions (https://swaywm.org/)
   license: "MIT"
   min_ansible_version: '2.13'
   github_branch: main
@@ -16,9 +16,9 @@ galaxy_info:
     - name: Fedora
       versions: ['all']
   galaxy_tags:
-    - i3wm
+    - sway
     - desktop
     - linux
-    - xorg
+    - wayland
     - linux
 dependencies: []
