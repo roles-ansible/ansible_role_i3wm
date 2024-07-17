@@ -6,15 +6,19 @@
 
 ### Variables
 #
-# Logo key. Use Mod1 for Alt.
-set $mod Mod4
+# Logo key.
+# Use Mod4 for WIN or Mod1 for Alt.
+set $mod {{ sway__logo_key }}
+
 # Home row direction keys, like vim
 set $left h
 set $down j
 set $up k
 set $right l
+
 # Your preferred terminal emulator
-set $term foot
+set $term {{ sway__term }}
+
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
@@ -89,10 +93,10 @@ input type:keyboard {
     floating_modifier $mod normal
 
     # Reload the configuration file
-    bindsym $mod+Shift+c reload
+    bindsym {{ sway__reload }} reload
 
     # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' --button-dismiss 'Reload and Continue' 'swaymsg reload'   --button-no-terminal 'Yes, exit sway' 'swaymsg exit'
 #
 # Moving around:
 #

@@ -19,7 +19,16 @@
     state: "present"
   become: true
   with_items:
-    - "sway"
+    - 'sway'
+    - 'sway-backgrounds'
+    - 'swaylock'
+    - 'sway-notification-center'
+    - 'swaybg'
+    - 'swayidle'
+    - 'swayimg'
+    - 'wdisplays'
+    - 'wlsunset'
+    - 'waybar'
 
 - name: Ensure font-awesome is installed
   ansible.builtin.apt:
@@ -27,6 +36,13 @@
     state: "present"
   become: true
   with_items:
-    - "fonts-font-awesome"
-    - "virtualenv"
+    - 'fonts-font-awesome'
+    - 'virtualenv'
   when: sway__dynamic_names | bool
+
+- name: Ensure terminal Packages are installed
+  ansible.builtin.apt:
+    name: "{{ item }}"
+    state: "present"
+  become: true
+  with_items: "{{ swaywm__term_pkgs }}"
