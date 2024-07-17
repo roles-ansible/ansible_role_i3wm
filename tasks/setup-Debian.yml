@@ -7,8 +7,26 @@
   when:
     - ansible_pkg_mgr == "apt"
 
-- name: Ensure i3 packages are installed.
+# - name: Ensure i3 packages are installed.
+#   ansible.builtin.apt:
+#     name: "{{ i3_packages }}"
+#     state: "present"
+#   become: true
+
+- name: Ensure swaywm is installed.
   ansible.builtin.apt:
-    name: "{{ i3_packages }}"
+    name: "{{ item }}"
     state: "present"
   become: true
+  with_items:
+    - "sway"
+
+- name: Ensure font-awesome is installed
+  ansible.builtin.apt:
+    name: "{{ item }}"
+    state: "present"
+  become: true
+  with_items:
+    - "fonts-font-awesome"
+    - "virtualenv"
+  when: sway__dynamic_names | bool

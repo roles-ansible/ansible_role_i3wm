@@ -1,4 +1,15 @@
 ---
+# deploy config to these users:
+sway__user_list:
+  - user: "{{ ansible_user_id }}"
+    home: "{{ ansible_env.HOME | default('/home/{{ ansible_user_id }}') }}"
+
+sway__dynamic_names: true
+
+# version check for this role?
+submodules_versioncheck: true
+
+
 # Here are the variables you may want to change
 # to configure i3wm
 i3_keybindings_extra: []
@@ -28,10 +39,6 @@ i3_run_on_startup: []
 #  - foo
 #  - bar
 
-# deploy config to these users:
-i3wm_user_list:
-  - user: "{{ ansible_user_id }}"
-    home: "{{ ansible_env.HOME | default('/home/{{ ansible_user_id }}') }}"
 
 ## set default font size
 i3_font_size: 11
@@ -67,5 +74,3 @@ disable_screensaver: true
 enable_lock_after_time: false
 lock_after_time: '90'  # minutes to wait until your screen is locked
 
-# version check for this role?
-submodules_versioncheck: true
