@@ -1,5 +1,5 @@
 ---
-- name: Install sway-dynamic-names-git
+- name: Install sway-dynamic-names
   become: true
   ansible.builtin.pip:
     name: sway-dynamic-names

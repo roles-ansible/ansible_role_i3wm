@@ -57,9 +57,11 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 #
 #          Multiple layouts can be specified by separating them with commas
 #
+{% if sway__keyboard_settings | bool %}
 input type:keyboard {
-  xkb_layout de
+  xkb_layout {{ sway__keyboard_lang }}
 }
+{% endif %}
 # Example configuration:
 #
 #   input "2:14:SynPS/2_Synaptics_TouchPad" {
@@ -97,6 +99,10 @@ input type:keyboard {
 
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' --button-dismiss 'Reload and Continue' 'swaymsg reload'   --button-no-terminal 'Yes, exit sway' 'swaymsg exit'
+
+    # Screensaver
+    bindsym $mod+Shift+x exec {{ sway__lock }}
+
 #
 # Moving around:
 #
@@ -228,13 +234,14 @@ bar {
 
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
-    status_command while date +'%Y-%m-%d %I:%M:%S %p'; do sleep 1; done
+    # status_command while date +'%Y-%m-%d %I:%M:%S %p'; do sleep 1; done
+    status_command waybar
 
-    colors {
-        statusline #ffffff
-        background #323232
-        inactive_workspace #32323200 #32323200 #5c5c5c
-    }
+    # colors {
+    #     statusline #ffffff
+    #     background #323232
+    #     inactive_workspace #32323200 #32323200 #5c5c5c
+    # }
 }
 
 include /etc/sway/config.d/*

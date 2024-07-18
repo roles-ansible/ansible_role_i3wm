@@ -10,10 +10,13 @@ sway__dynamic_names: true
 sway__logo_key: 'Mod4'
 sway__term: 'foot'
 sway__reload: '$mod+Shift+r'
-swaywm__term_pkgs:
+sway__term_pkgs:
   - foot
   - foot-terminfo
   - foot-themes
+sway__keyboard_settings: true
+sway__keyboard_lang: 'de'
+sway__lock: 'swaylock --color 000000 --image /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png'
 
 # version check for this role?
 submodules_versioncheck: true
@@ -82,4 +85,3 @@ i3wm_copy_wallpapers: true
 disable_screensaver: true
 enable_lock_after_time: false
 lock_after_time: '90'  # minutes to wait until your screen is locked
-

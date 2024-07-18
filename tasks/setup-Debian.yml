@@ -45,4 +45,4 @@
     name: "{{ item }}"
     state: "present"
   become: true
-  with_items: "{{ swaywm__term_pkgs }}"
+  with_items: "{{ sway__term_pkgs }}"

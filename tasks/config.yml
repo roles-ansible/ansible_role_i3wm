@@ -10,6 +10,7 @@
   loop: "{{ sway__user_list | flatten(1) }}"
   loop_control:
     loop_var: swayusr
+    label: "{{ swayusr.home }}/.config/"
 
 - name: Create sway config folder
   become: true
@@ -22,6 +23,7 @@
   loop: "{{ sway__user_list | flatten(1) }}"
   loop_control:
     loop_var: swayusr
+    label: "{{ swayusr.home }}/.config/sway/"
 
 - name: Create sway dynamic names
   ansible.builtin.include_tasks:
@@ -29,6 +31,7 @@
   loop: "{{ sway__user_list | flatten(1) }}"
   loop_control:
     loop_var: swayusr
+    label: "{{ swayusr.home }}/.config/sway/"
   when: sway__dynamic_names | bool
 
 - name: Deploy sway config file
@@ -41,4 +44,5 @@
     group: "{{ swayusr.user }}"
   loop: "{{ sway__user_list | flatten(1) }}"
   loop_control:
+    label: "{{ swayusr.home }}/.config/sway/config"
     loop_var: swayusr
