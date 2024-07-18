@@ -2,11 +2,7 @@
 extends: default
 
 rules:
-  braces:
-    max-spaces-inside: 1
-    level: error
-  brackets:
-    max-spaces-inside: 1
-    level: error
-  line-length: disable
-  comments-indentation: disable
+  # 150 chars should be enough, but don't fail if a line is longer
+  line-length:
+    max: 180
+    level: warning
