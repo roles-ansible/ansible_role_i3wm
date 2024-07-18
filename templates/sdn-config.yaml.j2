@@ -1,0 +1,17 @@
+---
+{{ ansible_managed | comment }}
+clients:
+  chromium: chrome
+  {{ sway__term }}: terminal
+  firefox: firefox
+  x-terminal-emulator: terminal
+  thunderbird: envelope
+  nautilus: folder-open
+  clementine: music
+  vlc: play
+  signal: comment
+  gedit: code
+deliminator: " "
+default_icon: dot-circle
+default:
+  new_desktop: true

@@ -14,3 +14,12 @@
     mode: "u=rwX,g=rX"
     owner: "{{ swayusr.user }}"
     group: "{{ swayusr.user }}"
+
+- name: Deploy sway-dynamic-names config
+  become: true
+  ansible.builtin.template:
+    src: "templates/sdn-config.yaml.j2"
+    dest: '{{ swayusr.home }}/.config/sway/sdn-config.yaml'
+    mode: '0640'
+    owner: "{{ swayusr.user }}"
+    group: "{{ swayusr.user }}"

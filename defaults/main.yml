@@ -4,7 +4,7 @@ sway__user_list:
   - user: "{{ ansible_user_id }}"
     home: "{{ ansible_env.HOME | default('/home/{{ ansible_user_id }}') }}"
 
-sway__dynamic_names: true
+sway__dynamic_names: false
 
 # sway behavior and favorites
 sway__logo_key: 'Mod4'
@@ -17,6 +17,7 @@ sway__term_pkgs:
 sway__keyboard_settings: true
 sway__keyboard_lang: 'de'
 sway__lock: 'swaylock --color 000000 --image /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png'
+sway__waybar: true
 
 # version check for this role?
 submodules_versioncheck: true
