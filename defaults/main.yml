@@ -19,6 +19,51 @@ sway__keyboard_lang: 'de'
 sway__lock: 'swaylock --color 000000 --image /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png'
 sway__waybar: true
 
+sway__keybindings:
+ - keybinding:
+   name: Volume (mute/unmute)
+   key: $mod+F12
+   exec: --no-startup-id pulsemixer --toggle-mute
+ - keybinding:
+   name: Volue (default)
+   key: $mod+Shift+F12
+   exec: --no-startup-id pulsemixer --set-volume 42
+ - keybinding:
+   name: volume-up
+   key: XF86AudioRaiseVolume
+   exec: --no-startup-id pulsemixer --change-volume +3
+ - keybinding:
+   name: volume-down
+   key: XF86AudioLowerVolume
+   exec: --no-startup-id pulsemixer --change-volume -5
+ - keybinding:
+   name: Toggle Mic Mute
+   key: XF86AudioMicMute
+   exec: '--no-startup-id pulsemixer --toggle-mute --id $(pulsemixer --list-sources | cut -f3 | grep Default  | cut -d "," -f 1 | cut -c 6-)'
+ - keybinding:
+   name: Mic volume up
+   key: $mod+Shift+F4
+   exec: '--no-startup-id pulsemixer  --change-volume +3 --id $(pulsemixer --list-sources | cut -f3 | grep Default  | cut -d "," -f 1 | cut -c 6-)'
+ - keybinding:
+   name: Mic volume down
+   key: $mod+F4
+   exec: '--no-startup-id pulsemixer  --change-volume -5 --id $(pulsemixer --list-sources | cut -f3 | grep Default  | cut -d "," -f 1 | cut -c 6-)'
+ - keybinding:
+   name: Toggle Mic Mute
+   key: XF86AudioMute
+   exec: --no-startup-id pulsemixer --toggle-mute
+ - keybinding:
+   name: darker
+   key: XF86MonBrightnessDown
+   exec: --no-startup-id light -U 9
+ - keybinding:
+   name: lighter
+   key: XF86MonBrightnessUp
+   exec: --no-startup-id light -A 6
+
+sway__keybindings_extra: []
+
+
 # version check for this role?
 submodules_versioncheck: true
 

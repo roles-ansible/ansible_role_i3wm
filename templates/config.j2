@@ -225,6 +225,17 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
+# Register default keybindings
+{% for keybinding in sway__keybindings %}
+bindsym {{ keybinding.key }} exec {{ keybinding.exec }}
+{% endfor %}
+
+# Register additional keybindings
+{% for keybinding in sway__keybindings_extra %}
+bindsym {{ keybinding.key }} exec {{ keybinding.exec }}
+{% endfor %}
+
+
 #
 # Status Bar:
 #
