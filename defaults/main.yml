@@ -18,6 +18,7 @@ sway__keyboard_settings: true
 sway__keyboard_lang: 'de'
 sway__lock: 'swaylock --color 000000 --image /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png'
 sway__waybar: true
+sway__waybar_modules_right: ["idle_inhibitor", "custom/weather", "pulseaudio", "network", "cpu", "memory", "temperature", "backlight", "keyboard-state", "sway/language", "battery", "clock", "tray"]
 
 sway__keybindings:
  - keybinding:

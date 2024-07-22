@@ -1,0 +1,36 @@
+---
+- name: Create waybar config folder
+  become: true
+  ansible.builtin.file:
+    path: "{{ swayusr.home }}/.config/waybr/"
+    state: directory
+    mode: '0750'
+    owner: "{{ swayusr.user }}"
+    group: "{{ swayusr.user }}"
+
+- name: Deploy waybar weather script
+  become: true
+  ansible.builtin.template:
+    src: 'templates/wttr.py.j2'
+    dest: "{{ swayusr.home }}/.config/waybar/wttr.py"
+    mode: '0750'
+    owner: "{{ swayusr.user }}"
+    group: "{{ swayusr.user }}"
+
+- name: Deploy waybar stylesheet
+  become: true
+  ansible.builtin.template:
+    src: 'templates/waybar.css.j2'
+    dest: "{{ swayusr.home }}/.config/waybar/style.css"
+    mode: '0640'
+    owner: "{{ swayusr.user }}"
+    group: "{{ swayusr.user }}"
+
+- name: Deploy waybar config
+  become: true
+  ansible.builtin.template:
+    src: 'templates/waybar.json.j2'
+    dest: "{{ swayusr.home }}/.config/waybar/config"
+    mode: '0640'
+    owner: "{{ swayusr.user }}"
+    group: "{{ swayusr.user }}"
