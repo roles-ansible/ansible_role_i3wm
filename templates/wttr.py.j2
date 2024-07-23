@@ -4,8 +4,10 @@ wttr.in waybar widget
 {{ ansible_managed }}
 """
 import json
+import sys
 from datetime import datetime
 import requests
+import time
 
 localization = {
     "en": {
@@ -118,9 +120,16 @@ WEATHER_CODES = {
 
 data = {}
 
-
-weather = requests.get(f"https://{LANG}.wttr.in/?format=j1", timeout=10).json()
-
+for i in range(23):
+    try:
+        weather_raw = requests.get(f"https://{LANG}.wttr.in/?format=j1", timeout=42)
+        if weather_raw.status_code == 200:
+            weather = weather_raw.json()
+            break
+    except requests.ConnectionError:
+        if i == 22:
+            sys.exit()
+        time.sleep(1*i*i+1)
 
 def format_time(time):
     """
