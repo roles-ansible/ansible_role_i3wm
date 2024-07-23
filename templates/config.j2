@@ -257,5 +257,8 @@ bar {
     }
 }
 {% endif %}
+exec_always --no-startup-id exec wlsunset
+{% if sway__wlsunset | bool %}
 
+{% endif %}
 include /etc/sway/config.d/*

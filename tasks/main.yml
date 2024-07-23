@@ -13,6 +13,11 @@
     file: "setup-Debian.yml"
   when: ansible_os_family == 'Debian'
 
+- name: Install wlsunset
+  ansible.builtin.import_tasks:
+    file: "wlsunset.yml"
+  when: sway__wlsunset | bool
+
 - name: Create sway configuration and features
   ansible.builtin.import_tasks:
     file: "config.yml"

@@ -21,7 +21,6 @@
     - 'swayidle'
     - 'swayimg'
     - 'wdisplays'
-    - 'wlsunset'
 
 - name: Ensure font-awesome is installed
   ansible.builtin.apt:

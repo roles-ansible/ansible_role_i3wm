@@ -1,6 +1,6 @@
 ---
 - name: Ensure waybar is installed.
-  ansible.builtin.apt:
+  ansible.builtin.package:
     name: "{{ item }}"
     state: "present"
   become: true
