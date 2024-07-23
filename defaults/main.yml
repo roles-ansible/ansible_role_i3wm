@@ -22,7 +22,10 @@ sway__waybar_modules_left: ["sway/workspaces", "sway/mode", "sway/scratchpad"]
 sway__waybar_modules_center: ["sway/window"]
 sway__waybar_modules_right: ["idle_inhibitor", "custom/weather", "pulseaudio", "network", "cpu", "memory", "disk", "temperature", "backlight", "keyboard-state", "sway/language", "battery", "clock", "tray"]
 sway__waybar_font_size: '13px'
+sway__waybar_light_up:  'light -A 1'
+sway__waybar_light_down:  'light -U 1'
 sway__wlsunset: true
+sway__wlsunset_params: '-l 49 -L 8.4'
 
 sway__keybindings:
  - keybinding:

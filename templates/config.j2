@@ -258,7 +258,7 @@ bar {
     }
 }
 {% endif %}
-exec_always --no-startup-id exec wlsunset
+exec_always --no-startup-id exec wlsunset {{ sway__wlsunset_params }}
 {% if sway__wlsunset | bool %}
 
 {% endif %}
