@@ -1,9 +1,9 @@
-*/ {{ ansible_managed }} */
+/* {{ ansible_managed }} */
 
 * {
     /* `otf-font-awesome` is required to be installed for icons */
     font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
-    font-size: 13px;
+    font-size: {{ sway__waybar_font_size }};
 }
 
 window#waybar {

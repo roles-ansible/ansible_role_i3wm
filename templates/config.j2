@@ -227,6 +227,7 @@ bindsym $mod+r mode "resize"
 
 # Register default keybindings
 {% for keybinding in sway__keybindings %}
+# keybinding {{ keybinding.name }}
 bindsym {{ keybinding.key }} exec {{ keybinding.exec }}
 {% endfor %}
 

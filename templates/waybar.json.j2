@@ -6,8 +6,8 @@
     // "width": 1280, // Waybar width
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
-    "modules-left": ["sway/workspaces", "sway/mode", "sway/scratchpad"],
-    "modules-center": ["sway/window"],
+    "modules-left": {{ sway__waybar_modules_left | tojson }},
+    "modules-center": {{ sway__waybar_modules_center | tojson }},
     "modules-right": {{ sway__waybar_modules_right | tojson }},
     // Modules configuration
     "sway/workspaces": {
@@ -76,6 +76,18 @@
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "format-alt": "{:%Y-%m-%d %H:%M %Z}"
     },
+         "disk": {
+         "interval": 30,
+         "format": "{path}: {percentage_used}%",
+         "format-alt": "{used}/{total}",
+         "path": "/"
+     },
+     "sway/language": {
+         "format": "{shortDescription}",
+         "tooltip-format": "{long} {variant}",
+         "on-click": "swaymsg input type:keyboard xkb_switch_layout next",
+         "on-click-right": "gnome-control-center region"
+     },
     "cpu": {
         "format": "{usage}% ",
         "tooltip": false
@@ -102,7 +114,7 @@
             "critical": 15
         },
         "format": "{capacity}% {icon}",
-        "format-charging": "{capacity}% ",
+        "format-charging": "{capacity}% 🗲",
         "format-plugged": "{capacity}% ",
         "format-alt": "{time} {icon}",
         // "format-good": "", // An empty format will hide the module
@@ -115,11 +127,12 @@
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
         "format-wifi": "{essid} ({signalStrength}%) ",
-        "format-ethernet": "{ipaddr}/{cidr} ",
-        "tooltip-format": "{ifname} via {gwaddr} ",
-        "format-linked": "{ifname} (No IP) ",
+        "format-ethernet": "{ipaddr}/{cidr} 🖧",
+        "tooltip-format": "{ifname} via {gwaddr} 🔗",
+        "format-linked": "{ifname} (No IP) ⛒",
         "format-disconnected": "Disconnected ⚠",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+        "format-alt": "{ifname}: {ipaddr}/{cidr}",
+        "on-click": "gnome-control-center network"
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
@@ -131,8 +144,8 @@
         "format-source-muted": "",
         "format-icons": {
             "headphone": "",
-            "hands-free": "",
-            "headset": "",
+            "hands-free": "🤙",
+            "headset": "🎧",
             "phone": "",
             "portable": "",
             "car": "",
@@ -147,5 +160,10 @@
         "exec": "{{ swayusr.home }}/.config/waybar/wttr.py",
         "return-type": "json"
     },
+     "custom/power": {
+         "format": "",
+         "on-click": "wlogout",
+         "tooltip": false
+    }
 }
 

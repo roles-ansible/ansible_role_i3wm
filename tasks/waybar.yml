@@ -6,6 +6,7 @@
   become: true
   with_items:
     - 'waybar'
+    - 'wlogout'
 
 - name: Create waybar config folder
   become: true
