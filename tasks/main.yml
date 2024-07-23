@@ -25,20 +25,3 @@
     loop_var: swayusr
     label: "{{ swayusr.home }}/.config/waybar/"
   when: sway__waybar | bool
-
-# -  name: Ensure i3 packages are installed [Archlinux}
-#    ansible.builtin.include_tasks:
-#      file: setup-Archlinux.yml
-#    when: ansible_os_family == 'Archlinux'
-#
-# -  name: Ensure i3 packages are installed [RHEL].
-#    ansible.builtin.include_tasks:
-#      file: setup-RedHat.yml
-#    when: ansible_os_family == 'Fedora' or ansible_os_family == 'RedHat'
-
-# - name: Create i3 config file
-#   ansible.builtin.include_tasks:
-#     file: config.yml
-#   loop: "{{ i3wm_user_list | flatten(1) }}"
-#   loop_control:
-#     loop_var: i3wm_usr

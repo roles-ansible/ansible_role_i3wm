@@ -7,12 +7,6 @@
   when:
     - ansible_pkg_mgr == "apt"
 
-# - name: Ensure i3 packages are installed.
-#   ansible.builtin.apt:
-#     name: "{{ i3_packages }}"
-#     state: "present"
-#   become: true
-
 - name: Ensure swaywm is installed.
   ansible.builtin.apt:
     name: "{{ item }}"
@@ -28,7 +22,6 @@
     - 'swayimg'
     - 'wdisplays'
     - 'wlsunset'
-    - 'waybar'
 
 - name: Ensure font-awesome is installed
   ansible.builtin.apt:

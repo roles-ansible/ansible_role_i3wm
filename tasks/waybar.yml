@@ -1,8 +1,16 @@
 ---
+- name: Ensure waybar is installed.
+  ansible.builtin.apt:
+    name: "{{ item }}"
+    state: "present"
+  become: true
+  with_items:
+    - 'waybar'
+
 - name: Create waybar config folder
   become: true
   ansible.builtin.file:
-    path: "{{ swayusr.home }}/.config/waybr/"
+    path: "{{ swayusr.home }}/.config/waybar/"
     state: directory
     mode: '0750'
     owner: "{{ swayusr.user }}"
