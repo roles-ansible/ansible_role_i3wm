@@ -68,7 +68,7 @@ sway__keybindings:
  - keybinding:
    name: display settings
    key: XF86WakeUp
-   exec: wdisplay
+   exec: wdisplays
 
 sway__keybindings_extra: []
 
