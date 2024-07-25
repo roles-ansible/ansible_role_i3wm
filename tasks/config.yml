@@ -34,6 +34,32 @@
     label: "{{ swayusr.home }}/.config/sway/"
   when: sway__dynamic_names | bool
 
+- name: Creates swaylock config directory if needed
+  become: true
+  ansible.builtin.file:
+    path: "{{ swayusr.home }}/.swaylock"
+    state: directory
+    mode: '0750'
+    owner: "{{ swayusr.user }}"
+    group: "{{ swayusr.user }}"
+  loop: "{{ sway__user_list | flatten(1) }}"
+  loop_control:
+    loop_var: swayusr
+    label: "{{ swayusr.home }}/.swaylock"
+
+- name: Deploy swaylock config file
+  become: true
+  ansible.builtin.template:
+    src: 'templates/swaylock.j2'
+    dest: "{{ swayusr.home }}/.swaylock/config"
+    mode: '0640'
+    owner: "{{ swayusr.user }}"
+    group: "{{ swayusr.user }}"
+  loop: "{{ sway__user_list | flatten(1) }}"
+  loop_control:
+    label: "{{ swayusr.home }}/.swaylock/config"
+    loop_var: swayusr
+
 - name: Deploy sway config file
   become: true
   ansible.builtin.template:

@@ -16,7 +16,9 @@ sway__term_pkgs:
   - foot-themes
 sway__keyboard_settings: true
 sway__keyboard_lang: 'de'
-sway__lock: 'swaylock --color 000000 --image /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png'
+sway__lock: 'swaylock --color 00000000 && killall -9 cmatrix & foot -F cmatrix -a -L && exit'
+sway__swaylock: |
+  color=000000ff
 sway__waybar: true
 sway__waybar_modules_left: ["sway/workspaces", "sway/mode", "sway/scratchpad"]
 sway__waybar_modules_center: ["sway/window"]

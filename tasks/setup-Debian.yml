@@ -21,6 +21,7 @@
     - 'swayidle'
     - 'swayimg'
     - 'wdisplays'
+    - 'cmatrix'
 
 - name: Ensure font-awesome is installed
   ansible.builtin.apt:
