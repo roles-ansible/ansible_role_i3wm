@@ -26,8 +26,8 @@
     owner: "{{ i3wm_usr.user }}"
     group: "{{ i3wm_usr.user }}"
   loop:
-    - { src: 'files/background.png', dest: "{{ i3wm_usr.home }}/.config/background.png" }
-    - { src: 'files/lockscreen.png', dest: '{{ i3wm_usr.home }}/.config/lockscreen.png' }
+    - {src: 'files/background.png', dest: "{{ i3wm_usr.home }}/.config/background.png"}
+    - {src: 'files/lockscreen.png', dest: '{{ i3wm_usr.home }}/.config/lockscreen.png'}
   when: i3wm_copy_wallpapers | bool
 
 - name: Copy and validate i3wm config file

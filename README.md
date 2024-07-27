@@ -11,7 +11,7 @@ If you want to use wayland instead of xorg, think about using [sway](https://swa
 
 ### Get it directly from Ansible Galaxy
 ```bash
-$ ansible-galaxy install l3d.i3wm
+$ ansible-galaxy install roles-ansible.i3wm
 ```
 
  Role Variables
@@ -26,7 +26,7 @@ For a good overview about possible variables, please have a look into ``defaults
    vars_files:
      - vars/main.yml
    roles:
-     - {role: l3d.i3wm, tags[i3, i3wm]}
+     - {role: roles-ansible.i3wm, tags[i3, i3wm]}
 ```
 *`vars/main.yml`*
 
