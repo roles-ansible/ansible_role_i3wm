@@ -39,6 +39,8 @@ sway__waybar_modules_right:
   - "clock"
   - "tray"
 
+sway__launcher: 'fuzzel'
+sway__install_launcher: ['fuzzel']
 sway__waybar_font_size: '13px'
 sway__waybar_light_up: 'light -A 1'
 sway__waybar_light_down: 'light -U 1'
