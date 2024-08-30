@@ -61,11 +61,16 @@ i3_terminal: "terminator"
 i3_packages_extra:
   - ranger
 
-i3wm_copy_wallpapers: true
 
-disable_screensaver: true
-enable_lock_after_time: false
-lock_after_time: '90'  # minutes to wait until your screen is locked
+i3_wallpaper: true
+i3_no_screensaver: true
+i3_xautolock: true
+i3_screensaver_time: '90'
+i3_disable_beep: true
+
+#
+# enable_lock_after_time: false
+# lock_after_time: '90'  # minutes to wait until your screen is locked
 
 # version check for this role?
 submodules_versioncheck: true

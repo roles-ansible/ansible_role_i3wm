@@ -83,7 +83,11 @@ For a good overview about possible variables, please have a look into ``defaults
         on_startup: true
 
     # lock your screen after 90 min
-    enable_lock_after_time: true
+    i3_wallpaper: true
+    i3_no_screensaver: true
+    i3_xautolock: true
+    i3_screensaver_time: '90'
+    i3_disable_beep: true
 
     files/rofi/dracula_dark.rasi
 
