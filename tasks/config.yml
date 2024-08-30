@@ -28,7 +28,7 @@
   loop:
     - {src: 'files/background.png', dest: "{{ i3wm_usr.home }}/.config/background.png"}
     - {src: 'files/lockscreen.png', dest: '{{ i3wm_usr.home }}/.config/lockscreen.png'}
-  when: i3wm_copy_wallpapers | bool
+  when: i3_wallpaper | bool
 
 - name: Copy and validate i3wm config file
   become: true

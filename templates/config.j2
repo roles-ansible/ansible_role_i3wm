@@ -183,13 +183,17 @@ exec_always sleep 1 && xrandr \
 exec_always feh --bg-scale {{ i3_desktop_background }}
 {% endif %}
 
-{% if disable_screensaver | bool %}
-# Disable screensaver by default
+{% if i3_no_screensaver | bool %}
+# Disable screensaver
 exec_always xset s off
 exec xset -dpms
 {% endif %}
 
-{% if enable_lock_after_time | bool %}
+{% if i3_disable_beep | bool %}
+exec_always xset b off
+{% endif %}
+
+{% if i3_xautolock | bool %}
 exec xautolock -time {{ lock_after_time }} -locker 'maim /tmp/screen_locked.png; mogrify -scale 10% -scale 1000% /tmp/screen_locked.png; i3lock -i /tmp/screen_locked.png'
 {% endif %}
 
