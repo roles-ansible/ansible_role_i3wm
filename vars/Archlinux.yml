@@ -2,7 +2,6 @@
 __i3_packages:
   - i3
   - i3-gaps
-  # - i3-wm
   - i3blocks
   - i3lock
   - i3status
@@ -11,8 +10,8 @@ __i3_packages:
   - tmux
   - terminator
   - i3lock
-  - xautolock
   - maim
   - imagemagick
-  - fonts-fork-awesome
+  - ttf-font-awesome
+  - noto-fonts-emoji
   - pulsemixer
