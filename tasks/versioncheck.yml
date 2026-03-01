@@ -7,7 +7,7 @@
   ansible.builtin.file:
     path: '/etc/.ansible-version'
     state: directory
-    mode: 0755
+    mode: '0755'
   when: submodules_versioncheck | bool
 
 - name: Check playbook version
