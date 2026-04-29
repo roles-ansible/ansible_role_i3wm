@@ -185,8 +185,9 @@ exec_always feh --bg-scale {{ i3_desktop_background }}
 
 {% if i3_no_screensaver | bool %}
 # Disable screensaver
-exec_always xset s off
-exec xset -dpms
+exec_always --no-startup-id xset s off
+exec_always --no-startup-id xset -dpms
+exec_always --no-startup-id xset s noblank
 {% endif %}
 
 {% if i3_disable_beep | bool %}
