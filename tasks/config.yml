@@ -2,20 +2,20 @@
 - name: Creates directory
   become: true
   ansible.builtin.file:
-    path: '{{ i3wm_usr.home }}/.config'
+    path: "{{ i3wm_usr['home'] }}/.config"
     state: directory
     mode: '0750'
-    owner: "{{ i3wm_usr.user }}"
-    group: "{{ i3wm_usr.user }}"
+    owner: "{{ i3wm_usr['user'] }}"
+    group: "{{ i3wm_usr['user'] }}"
 
 - name: Create i3 config folder
   become: true
   ansible.builtin.file:
-    path: '{{ i3wm_usr.home }}/.config/i3/'
+    path: "{{ i3wm_usr['home'] }}/.config/i3/"
     state: directory
     mode: '0750'
-    owner: "{{ i3wm_usr.user }}"
-    group: "{{ i3wm_usr.user }}"
+    owner: "{{ i3wm_usr['user'] }}"
+    group: "{{ i3wm_usr['user'] }}"
 
 - name: Copy multiple images
   become: true
@@ -23,50 +23,50 @@
     src: "{{ item.src }}"
     dest: "{{ item.dest }}"
     mode: '0644'
-    owner: "{{ i3wm_usr.user }}"
-    group: "{{ i3wm_usr.user }}"
+    owner: "{{ i3wm_usr['user'] }}"
+    group: "{{ i3wm_usr['user'] }}"
   loop:
-    - {src: 'files/background.png', dest: "{{ i3wm_usr.home }}/.config/background.png"}
-    - {src: 'files/lockscreen.png', dest: '{{ i3wm_usr.home }}/.config/lockscreen.png'}
+    - {src: 'files/background.png', dest: "{{ i3wm_usr['home'] }}/.config/background.png"}
+    - {src: 'files/lockscreen.png', dest: "{{ i3wm_usr['home'] }}/.config/lockscreen.png"}
   when: i3_wallpaper | bool
 
 - name: Copy and validate i3wm config file
   become: true
   ansible.builtin.template:
     src: templates/config.j2
-    dest: "{{ i3wm_usr.home }}/.config/i3/config"
+    dest: "{{ i3wm_usr['home'] }}/.config/i3/config"
     mode: '0600'
     backup: true
     validate: i3 -C -c %s
-    owner: "{{ i3wm_usr.user }}"
-    group: "{{ i3wm_usr.user }}"
+    owner: "{{ i3wm_usr['user'] }}"
+    group: "{{ i3wm_usr['user'] }}"
 
 - name: Create directory ~/.config/i3blocks/
   become: true
   ansible.builtin.file:
-    path: "{{ i3wm_usr.home }}/.config/i3blocks/"
+    path: "{{ i3wm_usr['home'] }}/.config/i3blocks/"
     state: directory
     mode: '0750'
-    owner: "{{ i3wm_usr.user }}"
-    group: "{{ i3wm_usr.user }}"
+    owner: "{{ i3wm_usr['user'] }}"
+    group: "{{ i3wm_usr['user'] }}"
 
 - name: Generate i3blocks config
   become: true
   ansible.builtin.template:
     src: 'templates/i3blocks_config.j2'
-    dest: "{{ i3wm_usr.home }}/.config/i3blocks/config"
+    dest: "{{ i3wm_usr['home'] }}/.config/i3blocks/config"
     mode: '0640'
-    owner: "{{ i3wm_usr.user }}"
-    group: "{{ i3wm_usr.user }}"
+    owner: "{{ i3wm_usr['user'] }}"
+    group: "{{ i3wm_usr['user'] }}"
 
 - name: Copy i3blocks config
   become: true
   ansible.builtin.copy:
     src: "files/i3blocks/{{ item }}"
-    dest: "{{ i3wm_usr.home }}/.config/i3blocks/{{ item }}"
+    dest: "{{ i3wm_usr['home'] }}/.config/i3blocks/{{ item }}"
     mode: '0750'
-    owner: "{{ i3wm_usr.user }}"
-    group: "{{ i3wm_usr.user }}"
+    owner: "{{ i3wm_usr['user'] }}"
+    group: "{{ i3wm_usr['user'] }}"
   loop:
     - 'volume.sh'
     - 'wlan.py'
@@ -75,17 +75,17 @@
 - name: Create rofi config folder
   become: true
   ansible.builtin.file:
-    path: '{{ i3wm_usr.home }}/.config/rofi/'
+    path: "{{ i3wm_usr['home'] }}/.config/rofi/"
     state: directory
     mode: '0750'
-    owner: "{{ i3wm_usr.user }}"
-    group: "{{ i3wm_usr.user }}"
+    owner: "{{ i3wm_usr['user'] }}"
+    group: "{{ i3wm_usr['user'] }}"
 
 - name: Copy rofi config
   become: true
   ansible.builtin.copy:
     src: "{{ i3_rofi_config_file }}"
-    dest: "{{ i3wm_usr.home }}/.config/rofi/config.rasi"
+    dest: "{{ i3wm_usr['home'] }}/.config/rofi/config.rasi"
     mode: '0640'
-    owner: "{{ i3wm_usr.user }}"
-    group: "{{ i3wm_usr.user }}"
+    owner: "{{ i3wm_usr['user'] }}"
+    group: "{{ i3wm_usr['user'] }}"

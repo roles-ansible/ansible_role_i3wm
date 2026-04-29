@@ -1,13 +1,13 @@
 ---
 - name: Register OS-specific Variables
   ansible.builtin.include_vars:
-    file: "{{ ansible_os_family }}.yml"
-  when: ansible_distribution != "Fedora"
+    file: "{{ ansible_facts['os_family'] }}.yml"
+  when: ansible_facts['distribution'] != "Fedora"
 
 - name: Register Fedora-specific variables
   ansible.builtin.include_vars:
-    file: "{{ ansible_distribution }}.yml"
-  when: ansible_distribution == "Fedora"
+    file: "{{ ansible_facts['distribution'] }}.yml"
+  when: ansible_facts['distribution'] == "Fedora"
 
 - name: Define i3_packages
   ansible.builtin.set_fact:
