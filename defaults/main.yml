@@ -30,8 +30,8 @@ i3_run_on_startup: []
 
 # deploy config to these users:
 i3wm_user_list:
-  - user: "{{ ansible_user_id }}"
-    home: "{{ ansible_env.HOME | default('/home/{{ ansible_user_id }}') }}"
+  - user: "{{ ansible_facts['user_id'] }}"
+    home: "{{ ansible_env.HOME | default('/home/{{ ansible_facts['user_id'] }}') }}"
 
 ## set default font size
 i3_font_size: 11
